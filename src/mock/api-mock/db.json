@@ -1,0 +1,279 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ronald",
+      "email": "ronald.p@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 2,
+      "name": "usuario",
+      "email": "usuario@gmail.com",
+      "password": "passwordDois"
+    }
+  ],
+  "whoami": {
+    "id": 1,
+    "name": "ronald",
+    "email": "ronald.p@gmail.com"
+  },
+  "login": {
+    "email": "ronald.teste@gmail.com",
+    "password": "senha"
+  },
+  "contributions": [
+    {
+      "id": 1,
+      "title": "Contribuição 1",
+      "description": "Descrição da contribuição 1",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 2,
+      "title": "Contribuição 2",
+      "description": "Descrição da contribuição 2",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 3,
+      "title": "Contribuição 3",
+      "description": "Descrição da contribuição 3",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    },
+    {
+      "id": 4,
+      "title": "Contribuição 4",
+      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
+      "user_id": 1,
+      "benefits": [
+        {
+          "id": 1,
+          "title": "Benefício 1",
+          "description": "Descrição do benefício 1",
+          "contribution_id": 1
+        },
+        {
+          "id": 2,
+          "title": "Benefício 2",
+          "description": "Descrição do benefício 2",
+          "contribution_id": 1
+        }
+      ],
+      "date": "2023-11-09T22:14:28.212Z"
+    }
+  ]
+}
