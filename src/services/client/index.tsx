@@ -24,7 +24,7 @@ export const getClients = async ({
   name?: string;
 }): Promise<Client[]> => {
   const clients: Client[] = await defaultClient
-    .get(`client`, { params: { first_name_like: name || "" } })
+    .get(`client`, { params: { name: name || "" } })
     .then((r) => r.data);
   return clients;
 };

@@ -39,9 +39,17 @@ server.use(ENDPOINTS.contributions, (req, res, next) => {
   const contributions = routers.db.get("contributions").value();
   res.json(contributions);
 });
-server.use(ENDPOINTS.client, (req, res, next) => {
-  const client = routers.db.get("client").value();
-  res.json(client);
+server.get(ENDPOINTS.client, (req, res, next) => {
+  const { name: nameForSearch } = req.query;
+  const clients = routers.db.get("client").value();
+  if (nameForSearch) {
+    const filteredClients = clients.filter((client) =>
+      client.first_name.toLowerCase().includes(nameForSearch.toLowerCase()) ||
+      client.last_name.toLowerCase().includes(nameForSearch.toLowerCase())
+    );
+    return res.json(filteredClients);
+  }
+  res.json(clients);
 });
 
 const port = 3000;

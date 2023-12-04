@@ -8,7 +8,7 @@ export const ClientListPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
 
   const getClients = async (search_term?: string) => {
-    const clients = await getClientsService({});
+    const clients = await getClientsService({ name: search_term });
     setClients(clients);
   };
 
@@ -21,7 +21,7 @@ export const ClientListPage = () => {
       <Input
         placeholder="Your email"
         leftSection={<IconSearch size={16} />}
-        onChange={(e) => getClients(e.currentTarget.value)}
+        onChange={(e) => getClients(e.target.value)}
       />
       <Box h={rem("60%")}>
         <ClientsList clients={clients} />
