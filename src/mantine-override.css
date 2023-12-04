@@ -1,0 +1,9 @@
+/* Override the background color of even rows */
+.mantine-Table-tbody .mantine-Table-tr:nth-child(even) {
+  background-color: #ebebeb00;
+}
+
+/* Override the background color of odd rows */
+.mantine-Table-tbody .mantine-Table-tr:nth-child(odd) {
+  background-color: #DCDCDC;
+}

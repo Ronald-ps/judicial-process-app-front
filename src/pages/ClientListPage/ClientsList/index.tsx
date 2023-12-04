@@ -31,9 +31,15 @@ interface ClientsListProps {
 export const ClientsList = (props: ClientsListProps) => {
   const rows = props.clients.map((client, i) => (
     <Table.Tr key={client.id}>
-      <Table.Td>{i}</Table.Td>
       <Table.Td>
-        {client.first_name} {client.last_name}
+        <Text opacity="0.7" px="10px">
+          {i}
+        </Text>
+      </Table.Td>
+      <Table.Td>
+        <Text opacity="0.7" px="10px">
+          {client.first_name} {client.last_name}
+        </Text>
       </Table.Td>
     </Table.Tr>
   ));
