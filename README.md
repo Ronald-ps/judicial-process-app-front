@@ -1,4 +1,4 @@
 ### Api Mock
 ```shell
-$ json-server src/mock/api-mock/db.json
+$ node src/mock/api-mock/server.js
 ```

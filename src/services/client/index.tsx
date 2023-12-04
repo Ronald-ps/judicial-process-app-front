@@ -18,9 +18,13 @@ export interface Client {
   marital_status: string;
   city: string;
 }
-export const getClients = async (): Promise<Client[]> => {
+export const getClients = async ({
+  name,
+}: {
+  name?: string;
+}): Promise<Client[]> => {
   const clients: Client[] = await defaultClient
-    .get(`client`)
+    .get(`client`, { params: { first_name_like: name || "" } })
     .then((r) => r.data);
   return clients;
 };
