@@ -1,11 +1,6 @@
 import { type Client } from "@services/client";
-import { Flex, Stack } from "@mantine/core";
-import { ScrollArea } from "@mantine/core";
-
-import type { Client } from "@/services/client";
+import { Table } from "@mantine/core";
 import { Box, Paper, Text } from "@mantine/core";
-
-import classes from "./ClientItem.module.css";
 
 interface ClientItemProps {
   client: Client;
@@ -34,15 +29,17 @@ interface ClientsListProps {
   clients: Client[];
 }
 export const ClientsList = (props: ClientsListProps) => {
+  const rows = props.clients.map((client, i) => (
+    <Table.Tr key={client.id}>
+      <Table.Td>{i}</Table.Td>
+      <Table.Td>
+        {client.first_name} {client.last_name}
+      </Table.Td>
+    </Table.Tr>
+  ));
   return (
-    <ScrollArea.Autosize mah="100%">
-      <Flex gap="20px" wrap={"wrap"} justify="center">
-        {props.clients.map((client) => (
-          <Box key={client.id} className={classes.clientItemBox}>
-            <ClientItem client={client} />
-          </Box>
-        ))}
-      </Flex>
-    </ScrollArea.Autosize>
+    <Table striped>
+      <Table.Tbody>{rows}</Table.Tbody>
+    </Table>
   );
 };
