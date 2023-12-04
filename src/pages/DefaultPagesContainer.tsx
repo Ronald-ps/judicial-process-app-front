@@ -1,12 +1,5 @@
 import { useDisclosure } from "@mantine/hooks";
-import {
-  AppShell,
-  Box,
-  Burger,
-  Group,
-  NavLink,
-  Text,
-} from "@mantine/core";
+import { AppShell, Box, Burger, Group, NavLink, Text } from "@mantine/core";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ROUTER_PATHS } from "./routers";
@@ -31,9 +24,21 @@ export const DefaultPagesContainer = () => {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        <NavLink label="Página inicial" onClick={() => navigate(ROUTER_PATHS.HOME)} active={location.pathname === ROUTER_PATHS.HOME}/>
-        <NavLink label="Minhas contribuições" onClick={() => navigate(ROUTER_PATHS.CONTRIBUTIONS)} active={location.pathname === ROUTER_PATHS.CONTRIBUTIONS}/>
-        <NavLink label="Documentos" onClick={() => navigate("/")} active={location.pathname ===  "/docs"}/>
+        <NavLink
+          label="Clientes"
+          onClick={() => navigate(ROUTER_PATHS.CLIENTS)}
+          active={location.pathname === ROUTER_PATHS.CLIENTS}
+        />
+        <NavLink
+          label="Minhas contribuições"
+          onClick={() => navigate(ROUTER_PATHS.CONTRIBUTIONS)}
+          active={location.pathname === ROUTER_PATHS.CONTRIBUTIONS}
+        />
+        <NavLink
+          label="Documentos"
+          onClick={() => navigate("/")}
+          active={location.pathname === "/docs"}
+        />
       </AppShell.Navbar>
       <AppShell.Main>
         <Outlet />

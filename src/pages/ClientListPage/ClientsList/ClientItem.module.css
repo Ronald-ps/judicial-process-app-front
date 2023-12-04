@@ -1,0 +1,11 @@
+.clientItemBox {
+  width: 20%;
+  height: 150px;
+  max-width: 300px;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  @mixin hover {
+    border: none;
+  }
+}
