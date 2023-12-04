@@ -1,4 +1,4 @@
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useElementSize } from "@mantine/hooks";
 import { AppShell, Box, Burger, Group, NavLink, Text } from "@mantine/core";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ export const DefaultPagesContainer = () => {
   const [opened, { toggle }] = useDisclosure();
   const navigate = useNavigate();
   const location = useLocation();
+  const { ref: mainRef, height: mainHeight } = useElementSize();
 
   return (
     <AppShell
@@ -40,8 +41,12 @@ export const DefaultPagesContainer = () => {
           active={location.pathname === "/docs"}
         />
       </AppShell.Navbar>
-      <AppShell.Main>
-        <Outlet />
+      <AppShell.Main ref={mainRef}>
+        {/* mainheight será um valor float, o que garante que alturas relativas vinda
+        dos elementos filhos (Outlet) funcionarão corretamente */}
+        <Box h={`${mainHeight}px`}>
+          <Outlet />
+        </Box>
       </AppShell.Main>
     </AppShell>
   );

@@ -17,13 +17,13 @@ export const ClientListPage = () => {
   }, []);
 
   return (
-    <Stack gap="8px" mah="100%">
+    <Stack gap="8px" h="100%">
       <Input
         placeholder="Your email"
         leftSection={<IconSearch size={16} />}
         onChange={(e) => getClients(e.target.value)}
       />
-      <Box h={rem("60%")}>
+      <Box h={rem("95%")}>
         <ClientsList clients={clients} />
       </Box>
     </Stack>

@@ -1,5 +1,5 @@
 import { type Client } from "@services/client";
-import { Table } from "@mantine/core";
+import { ScrollAreaAutosize, Table } from "@mantine/core";
 import { Box, Paper, Text } from "@mantine/core";
 
 interface ClientItemProps {
@@ -44,8 +44,10 @@ export const ClientsList = (props: ClientsListProps) => {
     </Table.Tr>
   ));
   return (
-    <Table striped>
-      <Table.Tbody>{rows}</Table.Tbody>
-    </Table>
+    <ScrollAreaAutosize h="100%">
+      <Table striped>
+        <Table.Tbody>{rows}</Table.Tbody>
+      </Table>
+    </ScrollAreaAutosize>
   );
 };
