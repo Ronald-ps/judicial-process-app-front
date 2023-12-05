@@ -1,18 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-
+import { NewClientPage } from "./NewClientPage";
 import { DefaultPagesContainer } from "./DefaultPagesContainer";
 import { LoginPage } from "./LoginPage";
-import { HomePage } from "./HomePage";
 import { ClientListPage } from "./ClientListPage";
 import { ProtectedRoute } from "@components/auth/ProtectedRoute";
 import { ContributionsListPage } from "./ContributionsListPage";
 import { NewContributionPage } from "./NewContributionPage";
 
+export const CLIENT_ROUTES = {
+  CLIENTS: "/clients",
+  NEW_CLIENT: "/clients/add",
+};
+
 export const ROUTER_PATHS = {
   LOGIN: "/login",
   HOME: "/",
   CONTRIBUTIONS: "/contributions",
-  CLIENTS: "/clients",
+  ...CLIENT_ROUTES,
 };
 
 export const router = createBrowserRouter([
@@ -34,6 +38,7 @@ export const router = createBrowserRouter([
             element: <ContributionsListPage />,
           },
           { path: ROUTER_PATHS.CLIENTS, element: <ClientListPage /> },
+          { path: ROUTER_PATHS.NEW_CLIENT, element: <NewClientPage /> },
         ],
       },
     ],

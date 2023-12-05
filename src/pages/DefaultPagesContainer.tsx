@@ -2,7 +2,7 @@ import { useDisclosure, useElementSize } from "@mantine/hooks";
 import { AppShell, Box, Burger, Group, NavLink, Text } from "@mantine/core";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ROUTER_PATHS } from "./routers";
+import { CLIENT_ROUTES, ROUTER_PATHS } from "./routers";
 
 export const DefaultPagesContainer = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -30,7 +30,7 @@ export const DefaultPagesContainer = () => {
         <NavLink
           label="Clientes"
           onClick={() => navigate(ROUTER_PATHS.CLIENTS)}
-          active={location.pathname === ROUTER_PATHS.CLIENTS}
+          active={Object.values(CLIENT_ROUTES).includes(location.pathname)}
         />
         <NavLink
           label="Minhas contribuições"
