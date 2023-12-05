@@ -38,6 +38,8 @@ export interface Client {
   city: string;
 }
 
+export interface ClientForSave extends Omit<Client, "id"> {}
+
 export const getClients = async ({
   name,
 }: {
@@ -47,4 +49,11 @@ export const getClients = async ({
     .get(`client`, { params: { name: name || "" } })
     .then((r) => r.data);
   return clients;
+};
+
+export const saveClient = async (client: ClientForSave): Promise<Client> => {
+  const savedClient: Client = await defaultClient
+    .post(`client`, client)
+    .then((r) => r.data);
+  return savedClient;
 };

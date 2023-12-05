@@ -1,8 +1,9 @@
+import cors from "cors";
 import jsonServer from "json-server";
+
 const server = jsonServer.create();
 const routers = jsonServer.router("src/mock/api-mock/db.json");
 const middlewares = jsonServer.defaults();
-import cors from "cors";
 
 server.use(middlewares);
 server.use(
@@ -14,6 +15,7 @@ server.use(
   })
 );
 server.options("*", cors());
+server.use(jsonServer.bodyParser);
 
 const ENDPOINTS = {
   users: "/users",
@@ -43,13 +45,25 @@ server.get(ENDPOINTS.client, (req, res, next) => {
   const { name: nameForSearch } = req.query;
   const clients = routers.db.get("client").value();
   if (nameForSearch) {
-    const filteredClients = clients.filter((client) =>
-      client.first_name.toLowerCase().includes(nameForSearch.toLowerCase()) ||
-      client.last_name.toLowerCase().includes(nameForSearch.toLowerCase())
+    const filteredClients = clients.filter(
+      (client) =>
+        client.first_name.toLowerCase().includes(nameForSearch.toLowerCase()) ||
+        client.last_name.toLowerCase().includes(nameForSearch.toLowerCase())
     );
     return res.json(filteredClients);
   }
   res.json(clients);
+});
+server.post(ENDPOINTS.client, (req, res) => {
+  console.log(req.body);
+  const newClient = req.body;
+  const clients = routers.db.get("client");
+  const maxId = clients.reduce((maxId, client) => {
+    return client.id > maxId ? client.id : maxId;
+  });
+  newClient.id = maxId + 1;
+  clients.push(newClient).write(newClient);
+  res.status(201).json(clients[clients.length - 1]);
 });
 
 const port = 3000;

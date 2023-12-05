@@ -1,4 +1,9 @@
-import { Client, clientMaritalStatus, educationLevel } from "@/services/client";
+import {
+  Client,
+  ClientForSave,
+  clientMaritalStatus,
+  educationLevel,
+} from "@/services/client";
 import {
   Button,
   Flex,
@@ -12,12 +17,17 @@ import {
 import { DateInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import classes from "./ClientForm.module.css";
+import { useState } from "react";
 
 interface ClientFormProps {
   title?: string;
-  client: Client;
+  client?: Client;
+  gap?: string;
+  onSubmit: (client: ClientForSave) => void;
+  onCancel: () => void;
 }
 export const ClientForm = (props: ClientFormProps) => {
+  const [loadingCancel, setLoadingCancel] = useState(false);
   const form = useForm({
     initialValues: {
       first_name: "",
@@ -48,7 +58,7 @@ export const ClientForm = (props: ClientFormProps) => {
       },
       rg: (value) => {
         if (isNaN(Number(value))) return "RG inválido";
-        if (value.length < 9) return "RG tem de ter 9 dígitos";
+        if (value.length < 8) return "RG tem de ter 8 dígitos";
         return null;
       },
       phone: (value) => {
@@ -91,9 +101,13 @@ export const ClientForm = (props: ClientFormProps) => {
         {props.title || "Formulário do Cliente"}
       </Text>
 
-      <form>
-        <Stack>
-          <Group w="100%" grow>
+      <form
+        onSubmit={form.onSubmit(() => {
+          props.onSubmit(form.values as ClientForSave);
+        })}
+      >
+        <Stack gap="8px">
+          <Group gap={props.gap} w="100%" grow>
             <TextInput
               label="Nome"
               required
@@ -108,7 +122,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow w="100%">
+          <Group gap={props.gap} grow w="100%">
             <TextInput
               label="Endereço"
               required
@@ -123,7 +137,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow w="100%">
+          <Group gap={props.gap} grow w="100%">
             <TextInput
               label="CPF"
               required
@@ -138,7 +152,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow w="100%">
+          <Group gap={props.gap} grow w="100%">
             <DateInput
               label="Data de Nascimento"
               required
@@ -157,7 +171,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow>
+          <Group gap={props.gap} grow>
             <TextInput
               label="Telefone"
               required
@@ -172,7 +186,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow>
+          <Group gap={props.gap} grow>
             <TextInput
               label="Nome do Pai"
               {...form.getInputProps("father_name")}
@@ -185,7 +199,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow>
+          <Group gap={props.gap} grow>
             <Select
               label="Escolaridade"
               required
@@ -201,7 +215,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
           </Group>
 
-          <Group grow>
+          <Group gap={props.gap} grow>
             <Select
               label="Estado Civil"
               placeholder="Selecione uma opção"
@@ -217,14 +231,30 @@ export const ClientForm = (props: ClientFormProps) => {
               {...form.getInputProps("childrens_quantity")}
             />
           </Group>
-          <Button
-            w="25%"
-            type="submit"
-            color="#1c16428c"
-            className={classes.clientFormSubmitButton}
-          >
-            Salvar
-          </Button>
+          <Group mt="20px" justify="end" gap="16px">
+            <Button
+              w="15%"
+              type="reset"
+              color="gray"
+              className={classes.clientFormCancelButton}
+              loading={loadingCancel}
+              onClick={async () => {
+                setLoadingCancel(true);
+                await props.onCancel();
+                setLoadingCancel(false);
+              }}
+            >
+              Cancelar
+            </Button>
+            <Button
+              w="15%"
+              type="submit"
+              color="#1c16428c"
+              className={classes.clientFormSubmitButton}
+            >
+              Salvar
+            </Button>
+          </Group>
         </Stack>
       </form>
     </Stack>

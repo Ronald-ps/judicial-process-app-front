@@ -42,7 +42,7 @@ export const ClientListPage = () => {
                   setLoadingNewClient(true);
                   setTimeout(() => {
                     navigate(CLIENT_ROUTES.NEW_CLIENT);
-                  }, 1700);
+                  }, 1200);
                 }}
                 loading={loadingNewClient}
               >
