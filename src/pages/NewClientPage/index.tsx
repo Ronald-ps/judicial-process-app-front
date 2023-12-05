@@ -1,3 +1,9 @@
+import { ClientForm } from "@components/client/ClientForm";
+
 export const NewClientPage = () => {
-  return <div>NewClientPage</div>;
+  return (
+    <div>
+      <ClientForm />
+    </div>
+  );
 };
