@@ -3,14 +3,19 @@ import { useEffect, useState } from "react";
 import { Box, Button, Flex, Input, Stack, Text, rem } from "@mantine/core";
 import { ClientsList } from "./ClientsList";
 import { IconSearch } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
+import { CLIENT_ROUTES } from "../routers";
 
 export const ClientListPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
+  const [loadingNewClient, setLoadingNewClient] = useState(false);
 
   const getClients = async (search_term?: string) => {
     const clients = await getClientsService({ name: search_term });
     setClients(clients);
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getClients();
@@ -31,7 +36,18 @@ export const ClientListPage = () => {
                 leftSection={<IconSearch size={16} />}
                 onChange={(e) => getClients(e.target.value)}
               />
-              <Button w="30%">Adicionar cliente</Button>
+              <Button
+                w="30%"
+                onClick={() => {
+                  setLoadingNewClient(true);
+                  setTimeout(() => {
+                    navigate(CLIENT_ROUTES.NEW_CLIENT);
+                  }, 1700);
+                }}
+                loading={loadingNewClient}
+              >
+                Adicionar cliente
+              </Button>
             </Flex>
             <Box h="98%">
               <ClientsList clients={clients} />
