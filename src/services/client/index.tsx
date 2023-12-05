@@ -1,5 +1,24 @@
 import { defaultClient } from "@services/api";
 
+type ClientMaritalStatus = "solteiro" | "casado" | "divorciado" | "viuvo";
+export const clientMaritalStatus: {
+  [key: string]: { label: string; value: ClientMaritalStatus };
+} = {
+  solteiro: { label: "Solteiro", value: "solteiro" },
+  casado: { label: "Casado", value: "casado" },
+  divorciado: { label: "Divorciado", value: "divorciado" },
+  viuvo: { label: "Viúvo", value: "viuvo" },
+};
+
+type EducationLevel = "fundamental" | "medio" | "superior";
+export const educationLevel: {
+  [key: string]: { label: string; value: EducationLevel };
+} = {
+  fundamental: { label: "Ensino fundamental", value: "fundamental" },
+  medio: { label: "Ensino médio", value: "medio" },
+  superior: { label: "superior", value: "superior" },
+};
+
 export interface Client {
   id: number;
   first_name: string;
@@ -13,11 +32,12 @@ export interface Client {
   father_name: string;
   mother_name: string;
   childrens_quantity: number;
-  education_level: string;
+  education_level: EducationLevel;
   profession: string;
-  marital_status: string;
+  marital_status: ClientMaritalStatus;
   city: string;
 }
+
 export const getClients = async ({
   name,
 }: {
