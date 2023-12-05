@@ -150,6 +150,7 @@ export const ClientForm = (props: ClientFormProps) => {
             />
             <TextInput
               label="Email"
+              type="email"
               required
               withAsterisk
               {...form.getInputProps("email")}
@@ -174,7 +175,6 @@ export const ClientForm = (props: ClientFormProps) => {
           <Group grow>
             <TextInput
               label="Nome do Pai"
-              withAsterisk
               {...form.getInputProps("father_name")}
             />
             <TextInput
@@ -230,33 +230,3 @@ export const ClientForm = (props: ClientFormProps) => {
     </Stack>
   );
 };
-
-/* /* Nome completo:__________________________________________________________________________________
-Endereço:Endereço: ______________________________________________________________________________________
-CPF:CPF: _________________________ RG:RG: __________________________ SSPSSP:___________________/_______
-Data de Nacimento: ____/____/_____Data de Nacimento: ____/____/_____ Telefone:Telefone: ( )________-___________ Celular:Celular: ( ) _________ - _________
-E-mail:E-mail: ________________________________________________________________________________________
-Pai:Pai: __________________________________________________________________________________________
-Mâe:Mâe: _________________________________________________________________________________________
-Filhos:Filhos: ( ) Sim ( ) Não Quantos:Quantos: _________________________________
-Escolaridade:Escolaridade: ____________________________________ Profissão:Profissão: ____________________________________
-Estado Cívil:Estado Cívil: ____________________________ Cidade:Cidade: ______________________________________________ */
-
-/*
-  client ->
-   id: number;
-  first_name: string;
-  last_name: string;
-  cpf: string;
-  rg: string;
-  birth_date: string;
-  phone: string;
-  cellphone: string;
-  email: string;
-  father_name: string;
-  mother_name: string;
-  childrens_quantity: number;
-  education_level: string;
-  profession: string;
-  marital_status: string;
-  city: string; */
