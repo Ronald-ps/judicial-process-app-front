@@ -47,6 +47,11 @@ export const ClientsList = (props: ClientsListProps) => {
     <ScrollAreaAutosize h="100%">
       <Table striped>
         <Table.Tbody>{rows}</Table.Tbody>
+        {rows.length === 0 && (
+          <Table.Caption>
+            <Text>Nenhum cliente encontrado para esses filtros</Text>
+          </Table.Caption>
+        )}
       </Table>
     </ScrollAreaAutosize>
   );

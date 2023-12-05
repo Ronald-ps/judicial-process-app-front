@@ -20,7 +20,9 @@ export const DefaultPagesContainer = () => {
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Box>
-            <Text fw={600}>Brag App</Text>
+            <Text fw={700} c="#1c1642" fz={"1.6rem"}>
+              Plural Patentes
+            </Text>
           </Box>
         </Group>
       </AppShell.Header>
