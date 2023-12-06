@@ -32,22 +32,12 @@ export const DefaultPagesContainer = () => {
           onClick={() => navigate(ROUTER_PATHS.CLIENTS)}
           active={Object.values(CLIENT_ROUTES).includes(location.pathname)}
         />
-        <NavLink
-          label="Minhas contribuições"
-          onClick={() => navigate(ROUTER_PATHS.CONTRIBUTIONS)}
-          active={location.pathname === ROUTER_PATHS.CONTRIBUTIONS}
-        />
-        <NavLink
-          label="Documentos"
-          onClick={() => navigate("/")}
-          active={location.pathname === "/docs"}
-        />
       </AppShell.Navbar>
       <AppShell.Main ref={mainRef}>
         {/* mainheight será um valor float, o que garante que alturas relativas vinda
         dos elementos filhos (Outlet) funcionarão corretamente */}
         <Box h={`${mainHeight}px`}>
-          <Outlet />
+            <Outlet />
         </Box>
       </AppShell.Main>
     </AppShell>

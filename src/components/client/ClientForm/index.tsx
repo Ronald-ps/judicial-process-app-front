@@ -235,7 +235,7 @@ export const ClientForm = (props: ClientFormProps) => {
             <Button
               w="15%"
               type="reset"
-              color="gray"
+              color="#ff6961"
               className={classes.clientFormCancelButton}
               loading={loadingCancel}
               onClick={async () => {
@@ -247,9 +247,9 @@ export const ClientForm = (props: ClientFormProps) => {
               Cancelar
             </Button>
             <Button
+              color="#1c16428c"
               w="15%"
               type="submit"
-              color="#1c16428c"
               className={classes.clientFormSubmitButton}
             >
               Salvar
