@@ -1,12 +1,11 @@
-import {
+import type {
   Client,
   ClientForSave,
   clientMaritalStatus,
   educationLevel,
-} from "@/services/client";
+} from "@/services/client/types";
 import {
   Button,
-  Flex,
   Group,
   NumberInput,
   Select,

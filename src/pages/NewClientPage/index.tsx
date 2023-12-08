@@ -1,6 +1,7 @@
 import { ClientForm } from "@components/client/ClientForm";
 import { Box } from "@mantine/core";
-import { ClientForSave, saveClient } from "@services/client";
+import { saveClient } from "@services/client/adapters";
+import type { ClientForSave } from "@services/client/types"
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ROUTES } from "../routers";
 import { AnimationPageContainer } from "@components/generic/animation/AnimationPageContainer";

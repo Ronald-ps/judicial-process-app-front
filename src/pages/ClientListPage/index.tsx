@@ -1,4 +1,5 @@
-import { getClients as getClientsService, type Client } from "@services/client";
+import { getClients as getClientsService } from "@services/client/adapters";
+import type { Client } from "@services/client/types"
 import { useEffect, useState } from "react";
 import { Box, Button, Flex, Input, Stack, Text, rem } from "@mantine/core";
 import { ClientsList } from "./ClientsList";

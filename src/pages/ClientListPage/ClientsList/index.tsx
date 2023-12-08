@@ -1,6 +1,6 @@
-import { type Client } from "@services/client";
+import { type Client } from "@services/client/types";
 import { ScrollAreaAutosize, Table } from "@mantine/core";
-import { Box, Paper, Text } from "@mantine/core";
+import { Text } from "@mantine/core";
 import classes from "./ClientList.module.css";
 import { useNavigate,  } from "react-router-dom";
 import { useConstructRoute } from "@pages/hooks";

@@ -1,5 +1,3 @@
-import { defaultClient } from "@services/api";
-
 type ClientMaritalStatus = "solteiro" | "casado" | "divorciado" | "viuvo";
 export const clientMaritalStatus: {
   [key: string]: { label: string; value: ClientMaritalStatus };
@@ -39,21 +37,3 @@ export interface Client {
 }
 
 export interface ClientForSave extends Omit<Client, "id"> {}
-
-export const getClients = async ({
-  name,
-}: {
-  name?: string;
-}): Promise<Client[]> => {
-  const clients: Client[] = await defaultClient
-    .get(`client`, { params: { name: name || "" } })
-    .then((r) => r.data);
-  return clients;
-};
-
-export const saveClient = async (client: ClientForSave): Promise<Client> => {
-  const savedClient: Client = await defaultClient
-    .post(`client`, client)
-    .then((r) => r.data);
-  return savedClient;
-};
