@@ -4,11 +4,12 @@ import { DefaultPagesContainer } from "./DefaultPagesContainer";
 import { LoginPage } from "./LoginPage";
 import { ClientListPage } from "./ClientListPage";
 import { ProtectedRoute } from "@components/auth/ProtectedRoute";
-import { ContributionsListPage } from "./ContributionsListPage";
+import { ClientDetailPage } from "./ClientDetailPage";
 
 export const CLIENT_ROUTES = {
   CLIENTS: "/clients",
   NEW_CLIENT: "/clients/add",
+  CLIENT_DETAIL: "/clients/:clientId",
 };
 
 export const ROUTER_PATHS = {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
         children: [
           { path: ROUTER_PATHS.CLIENTS, element: <ClientListPage /> },
           { path: ROUTER_PATHS.NEW_CLIENT, element: <NewClientPage /> },
+          {
+            path: ROUTER_PATHS.CLIENT_DETAIL,
+            element: <ClientDetailPage />,
+          },
         ],
       },
     ],

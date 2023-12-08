@@ -1,34 +1,18 @@
 import { type Client } from "@services/client";
 import { ScrollAreaAutosize, Table } from "@mantine/core";
 import { Box, Paper, Text } from "@mantine/core";
-
-interface ClientItemProps {
-  client: Client;
-}
-export const ClientItem = (props: ClientItemProps) => {
-  return (
-    <Paper withBorder p="20px" shadow="xs" h="100%">
-      <Box>
-        <Text fw={700} mb="8px" opacity="0.8">
-          {props.client.first_name} {props.client.last_name}
-        </Text>
-        <Text c="dimmed" mb="16px">
-          {props.client.city}
-        </Text>
-      </Box>
-      <Box>
-        <Text lineClamp={3} c="dimmed">
-          {props.client.cellphone || props.client.phone}
-        </Text>
-      </Box>
-    </Paper>
-  );
-};
+import classes from "./ClientList.module.css";
+import { useNavigate,  } from "react-router-dom";
+import { useConstructRoute } from "@pages/hooks";
+import { ROUTER_PATHS } from "@pages/routers"
 
 interface ClientsListProps {
   clients: Client[];
 }
 export const ClientsList = (props: ClientsListProps) => {
+  const navigate = useNavigate();
+  const constructRoute = useConstructRoute();
+
   const rows = props.clients.map((client, i) => (
     <Table.Tr key={client.id}>
       <Table.Td>
@@ -37,7 +21,14 @@ export const ClientsList = (props: ClientsListProps) => {
         </Text>
       </Table.Td>
       <Table.Td>
-        <Text opacity="0.7" px="10px">
+        <Text
+          opacity="0.7"
+          px="10px"
+          className={classes.clientRowTdText}
+          onClick={() => {
+            navigate(constructRoute({routerPath: ROUTER_PATHS.CLIENT_DETAIL, params: { clientId: client.id}}));
+          }}
+        >
           {client.first_name} {client.last_name}
         </Text>
       </Table.Td>
