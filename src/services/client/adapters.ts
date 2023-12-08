@@ -18,3 +18,8 @@ export const saveClient = async (client: ClientForSave): Promise<Client> => {
     .then((r) => r.data);
   return savedClient;
 };
+
+export const getClient = async (clientId: number) => {
+  const client: Client = await defaultClient.get(`client/${clientId}`).then(({ data }) => data)
+  return client
+}

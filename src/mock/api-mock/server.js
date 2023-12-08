@@ -65,6 +65,17 @@ server.post(ENDPOINTS.client, (req, res) => {
   clients.push(newClient).write(newClient);
   res.status(201).json(clients[clients.length - 1]);
 });
+server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
+  const { clientId } = req.params;
+  const clients = routers.db.get("client").value();
+  const client = clients.find((client) => client.id === Number(clientId));
+
+  if (client) {
+    res.json(client);
+  } else {
+    res.status(404).json({ message: "Client not found" });
+  }
+});
 
 const port = 3000;
 const host = `http://localhost:${port}`;
