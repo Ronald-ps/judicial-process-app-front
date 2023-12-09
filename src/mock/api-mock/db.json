@@ -22,260 +22,6 @@
     "email": "ronald.teste@gmail.com",
     "password": "senha"
   },
-  "contributions": [
-    {
-      "id": 1,
-      "title": "Contribuição 1",
-      "description": "Descrição da contribuição 1",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 2,
-      "title": "Contribuição 2",
-      "description": "Descrição da contribuição 2",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 3,
-      "title": "Contribuição 3",
-      "description": "Descrição da contribuição 3",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    },
-    {
-      "id": 4,
-      "title": "Contribuição 4",
-      "description": "Descrição da contribuição 4 Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4Descrição da contribuição 4",
-      "user_id": 1,
-      "benefits": [
-        {
-          "id": 1,
-          "title": "Benefício 1",
-          "description": "Descrição do benefício 1",
-          "contribution_id": 1
-        },
-        {
-          "id": 2,
-          "title": "Benefício 2",
-          "description": "Descrição do benefício 2",
-          "contribution_id": 1
-        }
-      ],
-      "date": "2023-11-09T22:14:28.212Z"
-    }
-  ],
   "client": [
     {
       "id": 1,
@@ -564,6 +310,323 @@
       "profession": "Professor de Biologia",
       "marital_status": "Casado",
       "city": "Belém"
+    }
+  ],
+  "legalProcess": [
+    {
+      "id": 1,
+      "client_id": 1,
+      "code": "123456789",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Processo para reaver marcas e fechar comercios que usam ilegalmente a marca do cliente",
+      "observations": [
+        {
+          "id": 1,
+          "legal_process_id": 1,
+          "description": "Observação 1"
+        },
+        {
+          "id": 2,
+          "legal_process_id": 1,
+          "description": "Observação 2"
+        },
+        {
+          "id": 3,
+          "legal_process_id": 1,
+          "description": "Observação 3"
+        },
+        {
+          "id": 4,
+          "legal_process_id": 1,
+          "description": "Observação 4"
+        },
+        {
+          "id": 5,
+          "legal_process_id": 1,
+          "description": "Observação 5"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 1,
+          "legal_process_id": 1,
+          "description": "Evolução 1"
+        },
+        {
+          "id": 2,
+          "legal_process_id": 1,
+          "description": "Evolução 2"
+        },
+        {
+          "id": 3,
+          "legal_process_id": 1,
+          "description": "Evolução 3"
+        },
+        {
+          "id": 4,
+          "legal_process_id": 1,
+          "description": "Evolução 4"
+        },
+        {
+          "id": 5,
+          "legal_process_id": 1,
+          "description": "Evolução 5"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "client_id": 1,
+      "code": "987654321",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Descrição do processo 2",
+      "observations": [
+        {
+          "id": 6,
+          "legal_process_id": 2,
+          "description": "Observação 6"
+        },
+        {
+          "id": 7,
+          "legal_process_id": 2,
+          "description": "Observação 7"
+        },
+        {
+          "id": 8,
+          "legal_process_id": 2,
+          "description": "Observação 8"
+        },
+        {
+          "id": 9,
+          "legal_process_id": 2,
+          "description": "Observação 9"
+        },
+        {
+          "id": 10,
+          "legal_process_id": 2,
+          "description": "Observação 10"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 6,
+          "legal_process_id": 2,
+          "description": "Evolução 6"
+        },
+        {
+          "id": 7,
+          "legal_process_id": 2,
+          "description": "Evolução 7"
+        },
+        {
+          "id": 8,
+          "legal_process_id": 2,
+          "description": "Evolução 8"
+        },
+        {
+          "id": 9,
+          "legal_process_id": 2,
+          "description": "Evolução 9"
+        },
+        {
+          "id": 10,
+          "legal_process_id": 2,
+          "description": "Evolução 10"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "client_id": 1,
+      "code": "123098765",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Descrição do processo 3",
+      "observations": [
+        {
+          "id": 11,
+          "legal_process_id": 3,
+          "description": "Observação 11"
+        },
+        {
+          "id": 12,
+          "legal_process_id": 3,
+          "description": "Observação 12"
+        },
+        {
+          "id": 13,
+          "legal_process_id": 3,
+          "description": "Observação 13"
+        },
+        {
+          "id": 14,
+          "legal_process_id": 3,
+          "description": "Observação 14"
+        },
+        {
+          "id": 15,
+          "legal_process_id": 3,
+          "description": "Observação 15"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 11,
+          "legal_process_id": 3,
+          "description": "Evolução 11"
+        },
+        {
+          "id": 12,
+          "legal_process_id": 3,
+          "description": "Evolução 12"
+        },
+        {
+          "id": 13,
+          "legal_process_id": 3,
+          "description": "Evolução 13"
+        },
+        {
+          "id": 14,
+          "legal_process_id": 3,
+          "description": "Evolução 14"
+        },
+        {
+          "id": 15,
+          "legal_process_id": 3,
+          "description": "Evolução 15"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "client_id": 1,
+      "code": "567890123",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Descrição do processo 4",
+      "observations": [
+        {
+          "id": 16,
+          "legal_process_id": 4,
+          "description": "Observação 16"
+        },
+        {
+          "id": 17,
+          "legal_process_id": 4,
+          "description": "Observação 17"
+        },
+        {
+          "id": 18,
+          "legal_process_id": 4,
+          "description": "Observação 18"
+        },
+        {
+          "id": 19,
+          "legal_process_id": 4,
+          "description": "Observação 19"
+        },
+        {
+          "id": 20,
+          "legal_process_id": 4,
+          "description": "Observação 20"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 16,
+          "legal_process_id": 4,
+          "description": "Evolução 16"
+        },
+        {
+          "id": 17,
+          "legal_process_id": 4,
+          "description": "Evolução 17"
+        },
+        {
+          "id": 18,
+          "legal_process_id": 4,
+          "description": "Evolução 18"
+        },
+        {
+          "id": 19,
+          "legal_process_id": 4,
+          "description": "Evolução 19"
+        },
+        {
+          "id": 20,
+          "legal_process_id": 4,
+          "description": "Evolução 20"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "client_id": 1,
+      "code": "234567890",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Descrição do processo 5",
+      "observations": [
+        {
+          "id": 21,
+          "legal_process_id": 5,
+          "description": "Observação 21"
+        },
+        {
+          "id": 22,
+          "legal_process_id": 5,
+          "description": "Observação 22"
+        },
+        {
+          "id": 23,
+          "legal_process_id": 5,
+          "description": "Observação 23"
+        },
+        {
+          "id": 24,
+          "legal_process_id": 5,
+          "description": "Observação 24"
+        },
+        {
+          "id": 25,
+          "legal_process_id": 5,
+          "description": "Observação 25"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 21,
+          "legal_process_id": 5,
+          "description": "Evolução 21"
+        },
+        {
+          "id": 22,
+          "legal_process_id": 5,
+          "description": "Evolução 22"
+        },
+        {
+          "id": 23,
+          "legal_process_id": 5,
+          "description": "Evolução 23"
+        },
+        {
+          "id": 24,
+          "legal_process_id": 5,
+          "description": "Evolução 24"
+        },
+        {
+          "id": 25,
+          "legal_process_id": 5,
+          "description": "Evolução 25"
+        }
+      ]
     }
   ]
 }

@@ -23,6 +23,7 @@ const ENDPOINTS = {
   login: "/login",
   contributions: "/contributions",
   client: "/client",
+  legalProcess: "/legal-process",
 };
 
 server.use(ENDPOINTS.users, (req, res, next) => {
@@ -75,6 +76,10 @@ server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
   } else {
     res.status(404).json({ message: "Client not found" });
   }
+});
+server.use(ENDPOINTS.legalProcess, (req, res, next) => {
+  const legalProcess = routers.db.get("legalProcess").value();
+  res.json(legalProcess);
 });
 
 const port = 3000;
