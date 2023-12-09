@@ -312,7 +312,7 @@
       "city": "Belém"
     }
   ],
-  "legalProcess": [
+  "legalProcesses": [
     {
       "id": 1,
       "client_id": 1,
@@ -624,6 +624,69 @@
         {
           "id": 25,
           "legal_process_id": 5,
+          "description": "Evolução 25"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "client_id": 2,
+      "code": "234567890",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01",
+      "description": "Descrição do processo 5",
+      "observations": [
+        {
+          "id": 26,
+          "legal_process_id": 6,
+          "description": "Observação 21"
+        },
+        {
+          "id": 27,
+          "legal_process_id": 6,
+          "description": "Observação 22"
+        },
+        {
+          "id": 28,
+          "legal_process_id": 6,
+          "description": "Observação 23"
+        },
+        {
+          "id": 29,
+          "legal_process_id": 6,
+          "description": "Observação 24"
+        },
+        {
+          "id": 30,
+          "legal_process_id": 6,
+          "description": "Observação 25"
+        }
+      ],
+      "evolutions": [
+        {
+          "id": 26,
+          "legal_process_id": 6,
+          "description": "Evolução 21"
+        },
+        {
+          "id": 27,
+          "legal_process_id": 6,
+          "description": "Evolução 22"
+        },
+        {
+          "id": 28,
+          "legal_process_id": 6,
+          "description": "Evolução 23"
+        },
+        {
+          "id": 29,
+          "legal_process_id": 6,
+          "description": "Evolução 24"
+        },
+        {
+          "id": 30,
+          "legal_process_id": 6,
           "description": "Evolução 25"
         }
       ]

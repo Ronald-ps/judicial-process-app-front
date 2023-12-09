@@ -24,6 +24,7 @@ const ENDPOINTS = {
   contributions: "/contributions",
   client: "/client",
   legalProcess: "/legal-process",
+  clientProcesses: "/client/:clientId/legal-process",
 };
 
 server.use(ENDPOINTS.users, (req, res, next) => {
@@ -78,9 +79,19 @@ server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
   }
 });
 server.use(ENDPOINTS.legalProcess, (req, res, next) => {
-  const legalProcess = routers.db.get("legalProcess").value();
+  const legalProcess = routers.db.get("legalProcesses").value();
   res.json(legalProcess);
 });
+server.use(ENDPOINTS.clientProcesses, (req, res, next) => {
+  const { clientId } = req.params;
+  const legalProcess = routers.db.get("legalProcesses").value();
+  const clientProcesses = legalProcess.filter(
+    (process) => process.client_id === Number(clientId)
+  );
+  res.json(clientProcesses);
+});
+
+
 
 const port = 3000;
 const host = `http://localhost:${port}`;

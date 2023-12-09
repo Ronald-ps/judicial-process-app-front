@@ -37,3 +37,25 @@ export interface Client {
 }
 
 export interface ClientForSave extends Omit<Client, "id"> {}
+
+interface Observation {
+  id: number;
+  description: string;
+  process_id: number;
+}
+
+interface Evolution {
+  id: number;
+  legal_process_id: number;
+  description: string;
+}
+
+export interface DetailedProcess {
+  id: number;
+  number: string;
+  client_id: number;
+  start_date: string;
+  description: string;
+  observations: Observation[];
+  evolutions: Evolution[];
+}

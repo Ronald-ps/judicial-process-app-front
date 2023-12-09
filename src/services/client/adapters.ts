@@ -1,5 +1,5 @@
 import { defaultClient } from "@services/api";
-import { Client, ClientForSave } from "./types";
+import type { Client, ClientForSave, DetailedProcess } from "./types";
 
 export const getClients = async ({
   name,
@@ -22,4 +22,9 @@ export const saveClient = async (client: ClientForSave): Promise<Client> => {
 export const getClient = async (clientId: number) => {
   const client: Client = await defaultClient.get(`client/${clientId}`).then(({ data }) => data)
   return client
+}
+
+export const getProcesses = async (clientId: number) => {
+  const process: DetailedProcess[] = await defaultClient.get(`client/${clientId}/process`).then(({ data }) => data)
+  return process
 }

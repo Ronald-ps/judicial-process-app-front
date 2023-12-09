@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { getClient as getClientService } from "@/services/client/adapters";
-import { Client } from "@/services/client/types";
+import type { Client, DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
+import { getProcesses } from "@/services/client/adapters";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
+  const [processes, setProcesses] = useState<DetailedProcess[]>([]);
 
   const clientId = useParams().clientId;
   if (!clientId)
@@ -14,12 +16,22 @@ export const ClientDetailPage = () => {
 
   const getClient = async () => {
     const client = await getClientService(Number(clientId));
-    setClient(client)
+    setClient(client);
+  };
+
+  const getProcessesByClient = async (clientId: number) => {
+    const processes = await getProcesses(clientId);
+    setProcesses(processes);
   };
 
   useEffect(() => {
-    getClient()
-  }, [])
+    getClient();
+  }, []);
+
+  useEffect(() => {
+    if (!client) return;
+    getProcessesByClient(client.id);
+  }, [client]);
 
   return <div>este</div>;
 };
