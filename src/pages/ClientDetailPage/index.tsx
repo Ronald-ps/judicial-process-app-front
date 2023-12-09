@@ -3,10 +3,18 @@ import { getClient as getClientService } from "@/services/client/adapters";
 import type { Client, DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
 import { getProcesses } from "@/services/client/adapters";
+import { Stack, Tabs, rem } from "@mantine/core";
+import { IconPhoto } from "@tabler/icons-react";
+import { IconMessageCircle } from "@tabler/icons-react";
+import { IconSettings } from "@tabler/icons-react";
+import { InformationPanel } from "./InformationPanel";
+import { ProcessesPanel } from "./ProcessesPanel";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
   const [processes, setProcesses] = useState<DetailedProcess[]>([]);
+
+  const iconStyle = { width: rem(12), height: rem(12) };
 
   const clientId = useParams().clientId;
   if (!clientId)
@@ -33,5 +41,42 @@ export const ClientDetailPage = () => {
     getProcessesByClient(client.id);
   }, [client]);
 
-  return <div>este</div>;
+  return (
+    <Stack>
+      <Tabs defaultValue="information">
+        <Tabs.List>
+          <Tabs.Tab
+            value="information"
+            leftSection={<IconPhoto style={iconStyle} />}
+          >
+            Informações pessoais
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="processes"
+            leftSection={<IconMessageCircle style={iconStyle} />}
+          >
+            Processos
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="evolutionAdnObservations"
+            leftSection={<IconSettings style={iconStyle} />}
+          >
+            Evoluções e observações
+          </Tabs.Tab>
+        </Tabs.List>
+
+        <Tabs.Panel value="information">
+          {client && <InformationPanel client={client} />}
+        </Tabs.Panel>
+
+        <Tabs.Panel value="processes">
+          <ProcessesPanel processes={processes || []}/>
+        </Tabs.Panel>
+
+        <Tabs.Panel value="evolutionAdnObservations">
+          Settings tab content
+        </Tabs.Panel>
+      </Tabs>
+    </Stack>
+  );
 };

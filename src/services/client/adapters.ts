@@ -25,6 +25,6 @@ export const getClient = async (clientId: number) => {
 }
 
 export const getProcesses = async (clientId: number) => {
-  const process: DetailedProcess[] = await defaultClient.get(`client/${clientId}/process`).then(({ data }) => data)
+  const process: DetailedProcess[] = await defaultClient.get(`client/${clientId}/legal-process`).then(({ data }) => data)
   return process
 }

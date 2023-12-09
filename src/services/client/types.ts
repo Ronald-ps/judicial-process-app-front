@@ -52,7 +52,7 @@ interface Evolution {
 
 export interface DetailedProcess {
   id: number;
-  number: string;
+  code: string;
   client_id: number;
   start_date: string;
   description: string;
