@@ -29,11 +29,12 @@ export const ObservationItem = (props: ProcessItemProps) => {
 
 interface ObservationTimelineProps {
   observations: Observation[];
+  maxHeight?: string;
 }
 export const ObservationTimeline = (props: ObservationTimelineProps) => {
   return (
     <Stack>
-      <ScrollAreaAutosize mah="500px">
+      <ScrollAreaAutosize mah={props.maxHeight || "500px"}>
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
           {props.observations.map((observation) => (
             <Timeline.Item bullet={<IconMessageDots size={12} />}>

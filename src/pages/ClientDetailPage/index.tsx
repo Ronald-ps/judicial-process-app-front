@@ -9,11 +9,17 @@ import { IconMessageCircle } from "@tabler/icons-react";
 import { IconSettings } from "@tabler/icons-react";
 import { InformationPanel } from "./InformationPanel";
 import { ProcessesPanel } from "./ProcessesPanel";
-import { InformationAndObservationPanel } from "./InformationAndObservationPanel";
+import { EvolutionAndObservationPanel } from "./EvolutionAndObservationPanel";
+import { ContainerVerticalAnimation } from "./ContainerVerticalAnimation";
+import { useIntersection } from "@mantine/hooks";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
   const [processes, setProcesses] = useState<DetailedProcess[]>([]);
+  const { ref: refProcesses, entry: entryProcesses } = useIntersection();
+  const { ref: refInformation, entry: entryInformation } = useIntersection();
+  const { ref: refEvalutionAndObservation, entry: entryEAndO } =
+    useIntersection();
 
   const iconStyle = { width: rem(12), height: rem(12) };
 
@@ -44,7 +50,7 @@ export const ClientDetailPage = () => {
 
   return (
     <Stack>
-      <Tabs defaultValue="information">
+      <Tabs defaultValue="processes">
         <Tabs.List>
           <Tabs.Tab
             value="information"
@@ -67,16 +73,31 @@ export const ClientDetailPage = () => {
         </Tabs.List>
 
         <Tabs.Panel value="information">
-          {client && <InformationPanel client={client} />}
+          <ContainerVerticalAnimation
+            inView={entryInformation?.isIntersecting}
+            ref={refInformation}
+          >
+            {client && <InformationPanel client={client} />}
+          </ContainerVerticalAnimation>
         </Tabs.Panel>
 
         <Tabs.Panel value="processes">
-          <ProcessesPanel processes={processes || []} />
+          <ContainerVerticalAnimation
+            inView={entryProcesses?.isIntersecting}
+            ref={refProcesses}
+          >
+            <ProcessesPanel processes={processes || []} />
+          </ContainerVerticalAnimation>
         </Tabs.Panel>
 
         <Tabs.Panel value="evolutionAdnObservations">
           <Box mt={24}>
-            <InformationAndObservationPanel processes={processes || []} />
+            <ContainerVerticalAnimation
+              inView={entryEAndO?.isIntersecting}
+              ref={refEvalutionAndObservation}
+            >
+              <EvolutionAndObservationPanel processes={processes || []} />
+            </ContainerVerticalAnimation>
           </Box>
         </Tabs.Panel>
       </Tabs>

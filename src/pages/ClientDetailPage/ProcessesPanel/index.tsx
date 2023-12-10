@@ -1,5 +1,6 @@
 import type { DetailedProcess } from "@services/client/types";
-import { Stack, Box } from "@mantine/core";
+import { Stack, Table } from "@mantine/core";
+import { formatDate } from "@/helpers/dateUtils";
 
 interface ProcessesPanelProps {
   processes: DetailedProcess[];
@@ -8,24 +9,41 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
   return (
     <>
       <Stack>
-        {props.processes.map((process) => (
-          <ProcessItem process={process} key={process.id}/>
-        ))}
-      </Stack>
-    </>
-  );
-};
+        <Table striped>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Nº</Table.Th>
+              <Table.Th>Data de início</Table.Th>
+              <Table.Th>Última evolução</Table.Th>
+              <Table.Th>Última observação</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
 
-interface ProcessItemProps {
-  process: DetailedProcess;
-}
-export const ProcessItem = (props: ProcessItemProps) => {
-  return (
-    <>
-      <Stack>
-        <Box>
-          <p>Número: {props.process.code}</p>
-        </Box>
+          <Table.Tbody>
+            {props.processes.map((process) => (
+              <Table.Tr>
+                <Table.Td>{process.code}</Table.Td>
+                <Table.Td>{formatDate(process.start_date)}</Table.Td>
+                <Table.Td>
+                  {process.evolutions.length
+                    ? formatDate(
+                        process.evolutions[process.evolutions.length - 1]
+                          .created_at
+                      )
+                    : "Nenhuma evolução registrada"}
+                </Table.Td>
+                <Table.Td>
+                  {process.observations.length
+                    ? formatDate(
+                        process.evolutions[process.evolutions.length - 1]
+                          .created_at
+                      )
+                    : "Nenhuma observação registrada"}
+                </Table.Td>
+              </Table.Tr>
+            ))}
+          </Table.Tbody>
+        </Table>
       </Stack>
     </>
   );

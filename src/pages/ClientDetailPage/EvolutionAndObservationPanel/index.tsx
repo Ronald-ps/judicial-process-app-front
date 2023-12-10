@@ -3,13 +3,13 @@ import { EvolutionTimeline } from "./EvolutionTimeline";
 import { ObservationTimeline } from "./ObservationTimeline";
 import { useEffect, useState } from "react";
 import { Box, Button, Group, Stack, Text } from "@mantine/core";
-import classes from "./InformationAndObservationPanel.module.css";
+import classes from "./EvolutionAndObservationPanel.module.css";
 
-interface InformationAndObservationPanelProps {
+interface EvolutionAndObservationPanelProps {
   processes: DetailedProcess[];
 }
-export const InformationAndObservationPanel = (
-  props: InformationAndObservationPanelProps
+export const EvolutionAndObservationPanel = (
+  props: EvolutionAndObservationPanelProps
 ) => {
   const [evolutions, setEvolutions] = useState<Evolution[]>([]);
   const [observations, setObservations] = useState<bservations[]>([]);
@@ -35,14 +35,14 @@ export const InformationAndObservationPanel = (
           <Text fw={400} mb="24px">
             Evoluções
           </Text>
-          <EvolutionTimeline evolutions={evolutions} />
+          <EvolutionTimeline evolutions={evolutions} maxHeight="350px" />
           <Button mt={20}> Nova evolução</Button>
         </Box>
         <Box w="500px">
           <Text fw={400} mb="24px">
             Observações
           </Text>
-          <ObservationTimeline observations={observations} />
+          <ObservationTimeline observations={observations}  maxHeight="350px"/>
           <Button mt={20}> Nova observação</Button>
         </Box>
       </Group>

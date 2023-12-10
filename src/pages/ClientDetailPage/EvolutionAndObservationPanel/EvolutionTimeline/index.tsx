@@ -33,11 +33,12 @@ export const EvolutionItem = (props: ProcessItemProps) => {
 
 interface EvolutionTimelineProps {
   evolutions: Evolution[];
+  maxHeight?: string;
 }
 export const EvolutionTimeline = (props: EvolutionTimelineProps) => {
   return (
     <Stack>
-      <ScrollAreaAutosize mah="500px">
+      <ScrollAreaAutosize mah={props.maxHeight || "500px"}>
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
           {props.evolutions.map((evolution) => (
             <Timeline.Item bullet={<IconMessageDots size={12} />}>
