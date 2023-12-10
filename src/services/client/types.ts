@@ -33,6 +33,7 @@ export interface Client {
   education_level: EducationLevel;
   profession: string;
   marital_status: ClientMaritalStatus;
+  address: string;
   city: string;
 }
 
@@ -44,10 +45,13 @@ interface Observation {
   process_id: number;
 }
 
-interface Evolution {
+export interface Evolution {
   id: number;
   legal_process_id: number;
   description: string;
+  process_id: number;
+  process_code: string;
+  created_at: string;
 }
 
 export interface DetailedProcess {

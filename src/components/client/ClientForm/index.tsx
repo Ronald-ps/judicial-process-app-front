@@ -1,6 +1,6 @@
-import type {
-  Client,
-  ClientForSave,
+import {
+  type Client,
+  type ClientForSave,
   clientMaritalStatus,
   educationLevel,
 } from "@/services/client/types";

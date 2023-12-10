@@ -3,12 +3,13 @@ import { getClient as getClientService } from "@/services/client/adapters";
 import type { Client, DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
 import { getProcesses } from "@/services/client/adapters";
-import { Stack, Tabs, rem } from "@mantine/core";
+import { Box, Stack, Tabs, rem } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
 import { IconMessageCircle } from "@tabler/icons-react";
 import { IconSettings } from "@tabler/icons-react";
 import { InformationPanel } from "./InformationPanel";
 import { ProcessesPanel } from "./ProcessesPanel";
+import { InformationAndObservationPanel } from "./InformationAndObservationPanel";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -70,11 +71,13 @@ export const ClientDetailPage = () => {
         </Tabs.Panel>
 
         <Tabs.Panel value="processes">
-          <ProcessesPanel processes={processes || []}/>
+          <ProcessesPanel processes={processes || []} />
         </Tabs.Panel>
 
         <Tabs.Panel value="evolutionAdnObservations">
-          Settings tab content
+          <Box mt={24}>
+            <InformationAndObservationPanel processes={processes || []} />
+          </Box>
         </Tabs.Panel>
       </Tabs>
     </Stack>
