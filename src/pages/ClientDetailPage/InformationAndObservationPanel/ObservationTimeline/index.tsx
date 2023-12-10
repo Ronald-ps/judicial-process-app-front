@@ -1,47 +1,43 @@
-import type { DetailedProcess, Evolution } from "@services/client/types";
+import type { Observation } from "@services/client/types";
 import { Box, Stack } from "@mantine/core";
 import { ScrollAreaAutosize, Timeline, Text } from "@mantine/core";
 import {
-  IconGitBranch,
-  IconGitCommit,
-  IconGitPullRequest,
   IconMessageDots,
 } from "@tabler/icons-react";
-import classes from "./EvolutionItem.module.css";
 import { formatDate } from "@/helpers/dateUtils";
 
 interface ProcessItemProps {
-  evolution: Evolution;
+  observation: Observation;
 }
-export const EvolutionItem = (props: ProcessItemProps) => {
+export const ObservationItem = (props: ProcessItemProps) => {
   return (
     <>
       <Text fw={100} mb="2">
-        Nº {props.evolution.process_code}
+        Nº {props.observation.process_code}
       </Text>
-      <Box className={classes.evolutionItemBoxContainer} maw="80%">
+      <Box maw="80%">
         <Text c="dimmed" size="sm">
-          {props.evolution.description}
+          {props.observation.description}
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate(props.evolution.created_at)}
+        {formatDate(props.observation.created_at)}
       </Text>
     </>
   );
 };
 
-interface EvolutionTimelineProps {
-  evolutions: Evolution[];
+interface ObservationTimelineProps {
+  observations: Observation[];
 }
-export const EvolutionTimeline = (props: EvolutionTimelineProps) => {
+export const ObservationTimeline = (props: ObservationTimelineProps) => {
   return (
     <Stack>
       <ScrollAreaAutosize mah="500px">
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
-          {props.evolutions.map((evolution) => (
+          {props.observations.map((observation) => (
             <Timeline.Item bullet={<IconMessageDots size={12} />}>
-              <EvolutionItem evolution={evolution} />
+              <ObservationItem observation={observation} />
             </Timeline.Item>
           ))}
         </Timeline>

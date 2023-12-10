@@ -39,10 +39,12 @@ export interface Client {
 
 export interface ClientForSave extends Omit<Client, "id"> {}
 
-interface Observation {
+export interface Observation {
   id: number;
   description: string;
   process_id: number;
+  process_code: string;
+  created_at: string;
 }
 
 export interface Evolution {
