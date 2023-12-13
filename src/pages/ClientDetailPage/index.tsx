@@ -73,6 +73,7 @@ export const ClientDetailPage = () => {
         </Tabs.List>
 
         <Tabs.Panel value="information">
+          <Box h={24} />
           <ContainerVerticalAnimation
             inView={entryInformation?.isIntersecting}
             ref={refInformation}
@@ -82,6 +83,7 @@ export const ClientDetailPage = () => {
         </Tabs.Panel>
 
         <Tabs.Panel value="processes">
+          <Box h={24} />
           <ContainerVerticalAnimation
             inView={entryProcesses?.isIntersecting}
             ref={refProcesses}
@@ -91,14 +93,13 @@ export const ClientDetailPage = () => {
         </Tabs.Panel>
 
         <Tabs.Panel value="evolutionAdnObservations">
-          <Box mt={24}>
+          <Box h={24} />
             <ContainerVerticalAnimation
               inView={entryEAndO?.isIntersecting}
               ref={refEvalutionAndObservation}
             >
               <EvolutionAndObservationPanel processes={processes || []} />
             </ContainerVerticalAnimation>
-          </Box>
         </Tabs.Panel>
       </Tabs>
     </Stack>
