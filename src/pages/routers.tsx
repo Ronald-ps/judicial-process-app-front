@@ -5,11 +5,13 @@ import { LoginPage } from "./LoginPage";
 import { ClientListPage } from "./ClientListPage";
 import { ProtectedRoute } from "@components/auth/ProtectedRoute";
 import { ClientDetailPage } from "./ClientDetailPage";
+import { ClientEditPage } from "./ClientEditPage";
 
 export const CLIENT_ROUTES = {
   CLIENTS: "/clients",
   NEW_CLIENT: "/clients/add",
   CLIENT_DETAIL: "/clients/:clientId",
+  EDIT_CLIENT: "/clients/:clientId/edit",
 };
 
 export const ROUTER_PATHS = {
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
           {
             path: ROUTER_PATHS.CLIENT_DETAIL,
             element: <ClientDetailPage />,
+          },
+          {
+            path: ROUTER_PATHS.EDIT_CLIENT,
+            element: <ClientEditPage />,
           },
         ],
       },

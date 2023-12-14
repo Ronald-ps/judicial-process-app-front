@@ -36,10 +36,10 @@
       "father_name": "David Doe",
       "mother_name": "Sarah Doe",
       "childrens_quantity": 2,
-      "education_level": "Bachelor's Degree",
+      "education_level": "superior",
       "profession": "Software Engineer",
-      "marital_status": "Married",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "casado",
+      "address": "Rua dos bobos, 0",
       "city": "New York"
     },
     {
@@ -55,10 +55,10 @@
       "father_name": "Robert Johnson",
       "mother_name": "Emily Johnson",
       "childrens_quantity": 1,
-      "education_level": "Master's Degree",
+      "education_level": "fundamental",
       "profession": "Data Scientist",
-      "marital_status": "Single",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "solteiro",
+      "address": "Rua dos bobos, 0",
       "city": "San Francisco"
     },
     {
@@ -74,10 +74,10 @@
       "father_name": "José Silva",
       "mother_name": "Ana Silva",
       "childrens_quantity": 3,
-      "education_level": "High School",
+      "education_level": "medio",
       "profession": "Sales Manager",
-      "marital_status": "Divorced",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "divorciado",
+      "address": "Rua dos bobos, 0",
       "city": "Rio de Janeiro"
     },
     {
@@ -93,10 +93,10 @@
       "father_name": "Michael Taylor",
       "mother_name": "Linda Taylor",
       "childrens_quantity": 0,
-      "education_level": "Ph.D.",
+      "education_level": "superior",
       "profession": "Research Scientist",
-      "marital_status": "Widowed",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "viuvo",
+      "address": "Rua dos bobos, 0",
       "city": "Chicago"
     },
     {
@@ -112,10 +112,10 @@
       "father_name": "Ricardo Pereira",
       "mother_name": "Juliana Pereira",
       "childrens_quantity": 1,
-      "education_level": "Bacharelado",
+      "education_level": "superior",
       "profession": "Enfermeira",
-      "marital_status": "Casada",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "casado",
+      "address": "Rua dos bobos, 0",
       "city": "Salvador"
     },
     {
@@ -131,10 +131,10 @@
       "father_name": "Fernando Machado",
       "mother_name": "Beatriz Machado",
       "childrens_quantity": 0,
-      "education_level": "Ensino Técnico",
+      "education_level": "fundamental",
       "profession": "Técnico em Informática",
-      "marital_status": "Solteiro",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "solteiro",
+      "address": "Rua dos bobos, 0",
       "city": "Brasília"
     },
     {
@@ -150,10 +150,10 @@
       "father_name": "Luiz Almeida",
       "mother_name": "Aline Almeida",
       "childrens_quantity": 2,
-      "education_level": "Mestrado",
+      "education_level": "medio",
       "profession": "Advogada",
       "marital_status": "Casada",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Fortaleza"
     },
     {
@@ -169,10 +169,10 @@
       "father_name": "Antônio Oliveira",
       "mother_name": "Fernanda Oliveira",
       "childrens_quantity": 3,
-      "education_level": "Doutorado",
+      "education_level": "superior",
       "profession": "Professor Universitário",
       "marital_status": "Divorciado",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Porto Alegre"
     },
     {
@@ -188,10 +188,10 @@
       "father_name": "Roberto Martins",
       "mother_name": "Isabela Martins",
       "childrens_quantity": 1,
-      "education_level": "Bacharelado",
+      "education_level": "superior",
       "profession": "Psicóloga",
       "marital_status": "Casada",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Curitiba"
     },
     {
@@ -207,10 +207,10 @@
       "father_name": "Anderson Ferreira",
       "mother_name": "Carla Ferreira",
       "childrens_quantity": 2,
-      "education_level": "Ensino Médio",
+      "education_level": "medio",
       "profession": "Empresário",
       "marital_status": "Divorciado",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Florianópolis"
     },
     {
@@ -226,10 +226,10 @@
       "father_name": "Carlos Cunha",
       "mother_name": "Marta Cunha",
       "childrens_quantity": 0,
-      "education_level": "Mestrado",
+      "education_level": "medio",
       "profession": "Engenheira Civil",
       "marital_status": "Solteira",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Porto Velho"
     },
     {
@@ -245,10 +245,10 @@
       "father_name": "Eduardo Rodrigues",
       "mother_name": "Sandra Rodrigues",
       "childrens_quantity": 3,
-      "education_level": "Doutorado",
+      "education_level": "superior",
       "profession": "Pesquisador Biológico",
       "marital_status": "Casado",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Manaus"
     },
     {
@@ -264,10 +264,10 @@
       "father_name": "Carlos Rocha",
       "mother_name": "Fátima Rocha",
       "childrens_quantity": 2,
-      "education_level": "Bacharelado",
+      "education_level": "superior",
       "profession": "Jornalista",
       "marital_status": "Casada",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Recife"
     },
     {
@@ -283,10 +283,10 @@
       "father_name": "Antônio Pereira",
       "mother_name": "Lúcia Pereira",
       "childrens_quantity": 1,
-      "education_level": "Mestrado",
+      "education_level": "medio",
       "profession": "Consultor Financeiro",
-      "marital_status": "Solteiro",
-      "adress": "Rua dos bobos, 0",
+      "marital_status": "solteiro",
+      "address": "Rua dos bobos, 0",
       "city": "São Luís"
     },
     {
@@ -302,10 +302,10 @@
       "father_name": "Ricardo Costa",
       "mother_name": "Cristina Costa",
       "childrens_quantity": 0,
-      "education_level": "Ensino Superior",
+      "education_level": "superior",
       "profession": "Psiquiatra",
       "marital_status": "Divorciada",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Natal"
     },
     {
@@ -321,10 +321,10 @@
       "father_name": "Luiz Silveira",
       "mother_name": "Mara Silveira",
       "childrens_quantity": 3,
-      "education_level": "Doutorado",
+      "education_level": "superior",
       "profession": "Professor de Biologia",
       "marital_status": "Casado",
-      "adress": "Rua dos bobos, 0",
+      "address": "Rua dos bobos, 0",
       "city": "Belém"
     }
   ],

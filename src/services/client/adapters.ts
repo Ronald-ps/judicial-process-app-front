@@ -19,12 +19,25 @@ export const saveClient = async (client: ClientForSave): Promise<Client> => {
   return savedClient;
 };
 
-export const getClient = async (clientId: number) => {
-  const client: Client = await defaultClient.get(`client/${clientId}`).then(({ data }) => data)
-  return client
-}
+export const updateClient = async (client: ClientForSave, clientId: number | string): Promise<Client> => {
+  const updatedClient: Client = await defaultClient
+    .patch(`client/${clientId}`, client, {
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((r) => r.data);
+  return updatedClient;
+};
+
+export const getClient = async (clientId: number | string) => {
+  const client: Client = await defaultClient
+    .get(`client/${clientId}`)
+    .then(({ data }) => data);
+  return client;
+};
 
 export const getProcesses = async (clientId: number) => {
-  const process: DetailedProcess[] = await defaultClient.get(`client/${clientId}/legal-process`).then(({ data }) => data)
-  return process
-}
+  const process: DetailedProcess[] = await defaultClient
+    .get(`client/${clientId}/legal-process`)
+    .then(({ data }) => data);
+  return process;
+};

@@ -50,7 +50,7 @@ export const ClientDetailPage = () => {
 
   return (
     <Stack>
-      <Tabs defaultValue="processes">
+      <Tabs defaultValue="information">
         <Tabs.List>
           <Tabs.Tab
             value="information"

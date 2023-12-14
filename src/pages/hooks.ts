@@ -1,5 +1,5 @@
 import { router, ROUTER_PATHS } from "@pages/routers";
-import { matchRoutes } from "react-router-dom";
+import { matchRoutes, useNavigate } from "react-router-dom";
 
 /**
  * @description Retorna o path genérico da rota atual
@@ -56,4 +56,24 @@ const constructRoute = ({ routerPath, params }: constructRouteParams) => {
  * */
 export function useConstructRoute() {
   return constructRoute;
+}
+
+/**
+ * @description Navega para uma rota com base no path e nos parâmetros passados
+ * @example const navigate = useNavigateWithConstructRoute();
+ * navigate('/model/:modelId', { modelId: 123 });
+ */
+export function useNavigateWithConstructRoute() {
+  const constructRoute = useConstructRoute();
+  const navigate = useNavigate();
+  return (fParams: {
+    routerPath: string;
+    params: Record<string, string | number>;
+  }) => {
+    const route = constructRoute({
+      routerPath: fParams.routerPath,
+      params: fParams.params,
+    });
+    navigate(route);
+  };
 }

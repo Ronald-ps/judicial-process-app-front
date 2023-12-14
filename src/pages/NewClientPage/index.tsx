@@ -9,7 +9,7 @@ import { AnimationPageContainer } from "@components/generic/animation/AnimationP
 export const NewClientPage = () => {
   const navigate = useNavigate();
   const handleSubmit = async (client: ClientForSave) => {
-    const savedClient = await saveClient(client);
+    await saveClient(client);
     return;
   };
 

@@ -37,7 +37,9 @@ export interface Client {
   city: string;
 }
 
-export interface ClientForSave extends Omit<Client, "id"> {}
+export interface ClientForSave extends Omit<Client, "id"> {
+  date: string | Date;
+}
 
 export interface Observation {
   id: number;

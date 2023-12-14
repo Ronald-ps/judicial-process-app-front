@@ -1,5 +1,5 @@
 import type { DetailedProcess } from "@services/client/types";
-import { Stack, Table } from "@mantine/core";
+import { Button, Flex, Stack, Table } from "@mantine/core";
 import { formatDate } from "@/helpers/dateUtils";
 
 interface ProcessesPanelProps {
@@ -44,6 +44,9 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
             ))}
           </Table.Tbody>
         </Table>
+        <Flex mt={16}>
+          <Button px="34px">Novo processo</Button>
+        </Flex>
       </Stack>
     </>
   );

@@ -27,26 +27,34 @@ interface ClientFormProps {
 }
 export const ClientForm = (props: ClientFormProps) => {
   const [loadingCancel, setLoadingCancel] = useState(false);
-  const form = useForm({
-    initialValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      address: "",
-      cpf: "",
-      rg: "",
-      birth_date: "",
-      phone: "",
-      cellphone: "",
-      father_name: "",
-      mother_name: "",
-      childrens_quantity: 0,
-      marital_status: "",
-      education_level: "",
-      profession: "",
-      city: "",
-    },
+  let initialValues = {
+    first_name: "",
+    last_name: "",
+    address: "",
+    city: "",
+    cpf: "",
+    rg: "",
+    birth_date: new Date(),
+    email: "",
+    phone: "",
+    cellphone: "",
+    father_name: "",
+    mother_name: "",
+    education_level: "",
+    profession: "",
+    marital_status: "",
+    childrens_quantity: 0,
+  };
+  if (props.client) {
+    initialValues = {
+      ...props.client,
+      birth_date: new Date(props.client.birth_date),
+    };
+    console.table(initialValues);
+  }
 
+  const form = useForm({
+    initialValues,
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
       cpf: (value) => {
@@ -88,11 +96,13 @@ export const ClientForm = (props: ClientFormProps) => {
         return null;
       },
     },
+    transformValues: (values) => {
+      return {
+        ...values,
+        birth_date: values.birth_date.toISOString().split("T")[0],
+      };
+    },
   });
-
-  if (props.client) {
-    form.setValues(props.client);
-  }
 
   return (
     <Stack>
@@ -218,10 +228,10 @@ export const ClientForm = (props: ClientFormProps) => {
             <Select
               label="Estado Civil"
               placeholder="Selecione uma opção"
+              {...form.getInputProps("marital_status")}
               data={Object.values(clientMaritalStatus)}
               required
               withAsterisk
-              {...form.getInputProps("marital_status")}
             />
             <NumberInput
               label="Quantidade de filhos"
