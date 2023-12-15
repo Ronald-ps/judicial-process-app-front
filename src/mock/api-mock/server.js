@@ -25,24 +25,31 @@ const ENDPOINTS = {
   client: "/client",
   legalProcess: "/legal-process",
   clientProcesses: "/client/:clientId/legal-process",
+  clientSimpleProcesses: "/client/:clientId/legal-process/simple",
+  evolutions: "/evolution",
+  observations: "/observation",
 };
 
 server.use(ENDPOINTS.users, (req, res, next) => {
   const users = routers.db.get("users").value();
   res.json(users);
 });
+
 server.use(ENDPOINTS.login, (req, res, next) => {
   const user = routers.db.get("login").value();
   res.json(user);
 });
+
 server.use(ENDPOINTS.whoami, (req, res, next) => {
   const user = routers.db.get("whoami").value();
   res.json(user);
 });
+
 server.use(ENDPOINTS.contributions, (req, res, next) => {
   const contributions = routers.db.get("contributions").value();
   res.json(contributions);
 });
+
 server.get(ENDPOINTS.client, (req, res, next) => {
   const { name: nameForSearch } = req.query;
   const clients = routers.db.get("client").value();
@@ -56,17 +63,23 @@ server.get(ENDPOINTS.client, (req, res, next) => {
   }
   res.json(clients);
 });
+
 server.post(ENDPOINTS.client, (req, res) => {
   console.log(req.body);
+  console.log("error");
   const newClient = req.body;
-  const clients = routers.db.get("client");
-  const maxId = clients.reduce((maxId, client) => {
-    return client.id > maxId ? client.id : maxId;
+  const clientsWrapper = routers.db.get("client");
+  const clients = clientsWrapper.value();
+  const clientMaxId = clients.reduce((clientMaxId, client) => {
+    return client.id > clientMaxId.id ? client : clientMaxId;
   });
+  const maxId = clientMaxId.id;
   newClient.id = maxId + 1;
-  clients.push(newClient).write(newClient);
+  console.log(newClient);
+  clientsWrapper.push(newClient).write(newClient);
   res.status(201).json(clients[clients.length - 1]);
 });
+
 server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
   const { clientId } = req.params;
   const clients = routers.db.get("client").value();
@@ -78,10 +91,12 @@ server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
     res.status(404).json({ message: "Client not found" });
   }
 });
+
 server.use(ENDPOINTS.legalProcess, (req, res, next) => {
   const legalProcess = routers.db.get("legalProcesses").value();
   res.json(legalProcess);
 });
+
 server.use(ENDPOINTS.clientProcesses, (req, res, next) => {
   const { clientId } = req.params;
   const legalProcess = routers.db.get("legalProcesses").value();
@@ -91,7 +106,67 @@ server.use(ENDPOINTS.clientProcesses, (req, res, next) => {
   res.json(clientProcesses);
 });
 
+server.get(ENDPOINTS.clientSimpleProcesses, (req, res, next) => {
+  const { clientId } = req.params;
+  const legalProcess = routers.db.get("simpleListLegalProcesses").value();
+  const clientProcesses = legalProcess.filter(
+    (process) => process.client_id === Number(clientId)
+  );
+  return res.json(clientProcesses);
+});
 
+server.get(ENDPOINTS.evolutions, (req, res, next) => {
+  const evolutions = routers.db.get("evolutions").value();
+  res.json(evolutions);
+});
+
+server.post(ENDPOINTS.evolutions, (req, res) => {
+  const { process_id, description } = req.body;
+
+  const process = routers.db.get("legalProcesses").value()[0];
+
+  const evolutionsWrapper = routers.db.get("evolutions");
+  const evolutions = evolutionsWrapper.value();
+  const maxId = evolutions.reduce((maxId, evolution) => {
+    return evolution.id > maxId ? evolution.id : maxId;
+  }, 0);
+  const newEvolution = {};
+  newEvolution.id = maxId + 1;
+  newEvolution.description = description;
+  newEvolution.process_id = process_id;
+  newEvolution.process_code = process.code;
+  newEvolution.created_at = new Date().toISOString();
+
+  evolutionsWrapper.push(newEvolution).write(newEvolution);
+  res.status(201).json(evolutions[evolutions.length - 1]);
+});
+
+server.get(ENDPOINTS.observations, (req, res, next) => {
+  const observations = routers.db.get("observations").value();
+  res.json(observations);
+});
+server.post(ENDPOINTS.observations, (req, res) => {
+  const { process_id, description } = req.body;
+
+  const process = routers.db
+    .get("legalProcesses")
+    .find({ id: process_id })
+    .value();
+
+  const observationsWrapper = routers.db.get("observations");
+  const observations = observationsWrapper.value();
+  const maxId = observations.reduce((maxId, observation) => {
+    return observation.id > maxId ? observation.id : maxId;
+  });
+  const newObservation = {};
+  newObservation.id = maxId + 1;
+  newObservation.description = description;
+  newObservation.process_id = process_id;
+  newObservation.process_code = process.code;
+
+  observations.push(newObservation).write(newObservation);
+  res.status(201).json(observations[observations.length - 1]);
+});
 
 const port = 3000;
 const host = `http://localhost:${port}`;

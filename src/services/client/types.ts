@@ -51,7 +51,6 @@ export interface Observation {
 
 export interface Evolution {
   id: number;
-  legal_process_id: number;
   description: string;
   process_id: number;
   process_code: string;
@@ -66,4 +65,10 @@ export interface DetailedProcess {
   description: string;
   observations: Observation[];
   evolutions: Evolution[];
+}
+
+
+export interface SimpleProcess {
+  id: number;
+  code: string;
 }

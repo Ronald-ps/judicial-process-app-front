@@ -1,10 +1,15 @@
-import type { DetailedProcess, Evolution } from "@services/client/types";
+import type {
+  DetailedProcess,
+  Evolution,
+  Observation,
+} from "@services/client/types";
 import { EvolutionTimeline } from "./EvolutionTimeline";
 import { ObservationTimeline } from "./ObservationTimeline";
 import { useEffect, useState } from "react";
 import { Box, Button, Group, Stack, Text } from "@mantine/core";
 import classes from "./EvolutionAndObservationPanel.module.css";
-
+import { NewEvolutionModal } from "./NewEvolutionModal";
+import { useParams } from "react-router-dom";
 interface EvolutionAndObservationPanelProps {
   processes: DetailedProcess[];
 }
@@ -12,7 +17,22 @@ export const EvolutionAndObservationPanel = (
   props: EvolutionAndObservationPanelProps
 ) => {
   const [evolutions, setEvolutions] = useState<Evolution[]>([]);
-  const [observations, setObservations] = useState<bservations[]>([]);
+  const [observations, setObservations] = useState<Observation[]>([]);
+  const [openModalNewEvolution, setOpenModalNewEvolution] = useState(false);
+
+  const clientId = useParams().clientId;
+  if (!clientId) {
+    throw new Error("clientId is required");
+  }
+
+  const handleNewEvolution = async ({
+    evolution,
+  }: {
+    evolution: Evolution;
+  }) => {
+    setEvolutions([evolution, ...evolutions]);
+    setOpenModalNewEvolution(false);
+  };
 
   useEffect(() => {
     const evolutions = props.processes
@@ -36,16 +56,32 @@ export const EvolutionAndObservationPanel = (
             Evoluções
           </Text>
           <EvolutionTimeline evolutions={evolutions} maxHeight="350px" />
-          <Button mt={20}> Nova evolução</Button>
+          <Button
+            mt={20}
+            onClick={() => {
+              setOpenModalNewEvolution(true);
+            }}
+          >
+            {" "}
+            Nova evolução
+          </Button>
         </Box>
         <Box w="500px">
           <Text fw={400} mb="24px">
             Observações
           </Text>
-          <ObservationTimeline observations={observations}  maxHeight="350px"/>
+          <ObservationTimeline observations={observations} maxHeight="350px" />
           <Button mt={20}> Nova observação</Button>
         </Box>
       </Group>
+      <NewEvolutionModal
+        opened={openModalNewEvolution}
+        onClose={() => {
+          setOpenModalNewEvolution(false);
+        }}
+        onSave={handleNewEvolution}
+        clientId={clientId}
+      />
     </Stack>
   );
 };
