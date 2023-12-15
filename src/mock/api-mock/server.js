@@ -23,6 +23,7 @@ const ENDPOINTS = {
   login: "/login",
   contributions: "/contributions",
   client: "/client",
+  process: "/process",
   legalProcess: "/legal-process",
   clientProcesses: "/client/:clientId/legal-process",
   clientSimpleProcesses: "/client/:clientId/legal-process/simple",
@@ -130,6 +131,29 @@ server.get(ENDPOINTS.clientSimpleProcesses, (req, res, next) => {
     (process) => process.client_id === Number(clientId)
   );
   return res.json(clientProcesses);
+});
+
+server.post(ENDPOINTS.process, (req, res, next) => {
+  const { client_id, code, description, start_date } = req.body;
+
+  const legalProcessesWrapper = routers.db.get("legalProcesses");
+  const legalProcesses = legalProcessesWrapper.value();
+  const maxId = legalProcesses.reduce((maxId, process) => {
+    return process.id > maxId ? process.id : maxId;
+  }, 0);
+  const newProcess = {};
+  newProcess.id = maxId + 1;
+  newProcess.code = code;
+  newProcess.description = description;
+  newProcess.client_id = client_id;
+  newProcess.created_at = new Date().toISOString();
+  newProcess.start_date = start_date;
+
+  legalProcessesWrapper.push(newProcess).write(newProcess);
+  const legalProcess = legalProcesses[legalProcesses.length - 1];
+  legalProcess.evolutions = [];
+  legalProcess.observations = [];
+  res.status(201).json(legalProcess);
 });
 
 server.get(ENDPOINTS.evolutions, (req, res, next) => {

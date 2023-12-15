@@ -25,7 +25,7 @@ export const EvolutionItem = (props: ProcessItemProps) => {
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate({dateString: props.evolution.created_at})}
+        {formatDate({ dateString: props.evolution.created_at })}
       </Text>
     </>
   );
@@ -41,7 +41,10 @@ export const EvolutionTimeline = (props: EvolutionTimelineProps) => {
       <ScrollAreaAutosize mah={props.maxHeight || "500px"}>
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
           {props.evolutions.map((evolution) => (
-            <Timeline.Item bullet={<IconMessageDots size={12} />}>
+            <Timeline.Item
+              bullet={<IconMessageDots size={12} />}
+              key={evolution.id}
+            >
               <EvolutionItem evolution={evolution} />
             </Timeline.Item>
           ))}

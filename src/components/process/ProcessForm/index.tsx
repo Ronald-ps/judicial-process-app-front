@@ -11,7 +11,7 @@ export const ProcessForm = (props: ProcessFormProps) => {
     initialValues: {
       code: "",
       description: "",
-      startDate: "",
+      start_date: "",
     },
   });
   return (
@@ -22,14 +22,20 @@ export const ProcessForm = (props: ProcessFormProps) => {
       }}
     >
       <Stack>
-        <TextInput label="Número" {...processForm.getInputProps("code")} />
+        <TextInput
+          label="Número"
+          {...processForm.getInputProps("code")}
+          required
+        />
         <TextInput
           label="Descrição"
           {...processForm.getInputProps("description")}
+          required
         />
         <DateInput
           label="Data de início"
-          {...processForm.getInputProps("startDate")}
+          {...processForm.getInputProps("start_date")}
+          required
         />
         <Button type="submit">Salvar</Button>
       </Stack>

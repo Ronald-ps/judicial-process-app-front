@@ -35,7 +35,10 @@ export const ObservationTimeline = (props: ObservationTimelineProps) => {
       <ScrollAreaAutosize mah={props.maxHeight || "500px"}>
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
           {props.observations.map((observation) => (
-            <Timeline.Item bullet={<IconMessageDots size={12} />}>
+            <Timeline.Item
+              bullet={<IconMessageDots size={12} />}
+              key={observation.id}
+            >
               <ObservationItem observation={observation} />
             </Timeline.Item>
           ))}

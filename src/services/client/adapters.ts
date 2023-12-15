@@ -4,6 +4,8 @@ import type {
   ClientForSave,
   DetailedProcess,
   Evolution,
+  ProcessForSave,
+  Process,
   SimpleProcess,
 } from "./types";
 
@@ -49,6 +51,13 @@ export const getProcesses = async (clientId: number) => {
     .get(`client/${clientId}/legal-process`)
     .then(({ data }) => data);
   return process;
+};
+
+export const processCreate = async (process: ProcessForSave) => {
+  const savedProcess: DetailedProcess = await defaultClient
+    .post(`process`, process)
+    .then(({ data }) => data);
+  return savedProcess;
 };
 
 export const getSimpleProcesses = async (clientId: number | string) => {

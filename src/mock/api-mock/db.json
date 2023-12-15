@@ -914,6 +914,92 @@
           "process_code": "23232324232422r3"
         }
       ]
+    },
+    {
+      "id": 7,
+      "code": "8327983274984",
+      "description": "Teste",
+      "created_at": "2023-12-15T03:10:19.048Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 8,
+      "code": "9333",
+      "description": "dedwew",
+      "created_at": "2023-12-15T03:10:32.565Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 9,
+      "code": "3232",
+      "description": "sdwfewf",
+      "created_at": "2023-12-15T03:11:13.061Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 10,
+      "code": "sddsdds",
+      "description": "sdsdd",
+      "created_at": "2023-12-15T03:12:33.227Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 11,
+      "code": "",
+      "description": "",
+      "created_at": "2023-12-15T03:15:28.483Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 12,
+      "code": "",
+      "description": "",
+      "created_at": "2023-12-15T03:16:30.621Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 13,
+      "code": "",
+      "description": "",
+      "created_at": "2023-12-15T03:16:36.195Z"
+    },
+    {
+      "id": 14,
+      "code": "",
+      "description": "",
+      "created_at": "2023-12-15T03:16:49.410Z",
+      "start_date": "2023-12-06T03:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "code": "Teste",
+      "description": "Descrição fake",
+      "created_at": "2023-12-15T03:17:12.846Z",
+      "start_date": "2023-12-11T03:00:00.000Z",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 16,
+      "code": "",
+      "description": "",
+      "created_at": "2023-12-15T03:20:15.002Z",
+      "start_date": "",
+      "evolutions": [],
+      "observations": []
+    },
+    {
+      "id": 17,
+      "code": "72392783",
+      "description": "Descrição de teste",
+      "created_at": "2023-12-15T03:20:58.430Z",
+      "start_date": "2023-12-19T03:00:00.000Z"
     }
   ],
   "simpleListLegalProcesses": [
@@ -1028,6 +1114,40 @@
       "process_id": "1",
       "process_code": "123456789",
       "created_at": "2023-12-15T01:42:17.987Z"
+    }
+  ],
+  "process": [
+    {
+      "id": 1,
+      "client_id": 1,
+      "code": "123456789",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01"
+    },
+    {
+      "id": 3,
+      "client_id": 1,
+      "code": "123098765",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01"
+    },
+    {
+      "id": 4,
+      "client_id": 1,
+      "code": "567890123",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01"
+    },
+    {
+      "id": 5,
+      "client_id": 1,
+      "code": "234567890",
+      "type": "acao_de_cobranca",
+      "stage": "execução",
+      "start_date": "2021-01-01"
     }
   ]
 }
