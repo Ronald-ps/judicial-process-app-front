@@ -148,23 +148,27 @@ server.get(ENDPOINTS.observations, (req, res, next) => {
 server.post(ENDPOINTS.observations, (req, res) => {
   const { process_id, description } = req.body;
 
-  const process = routers.db
+  let process = routers.db
     .get("legalProcesses")
-    .find({ id: process_id })
-    .value();
+    .value()
+    .find((process) => process.id === process_id);
+  if (!process) {
+    process = routers.db.get("simpleListLegalProcesses").value()[0];
+  }
 
   const observationsWrapper = routers.db.get("observations");
   const observations = observationsWrapper.value();
   const maxId = observations.reduce((maxId, observation) => {
     return observation.id > maxId ? observation.id : maxId;
-  });
+  }, 0);
   const newObservation = {};
   newObservation.id = maxId + 1;
   newObservation.description = description;
   newObservation.process_id = process_id;
   newObservation.process_code = process.code;
+  newObservation.created_at = new Date().toISOString();
 
-  observations.push(newObservation).write(newObservation);
+  observationsWrapper.push(newObservation).write(newObservation);
   res.status(201).json(observations[observations.length - 1]);
 });
 
