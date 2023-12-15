@@ -1,6 +1,7 @@
 import type { DetailedProcess } from "@services/client/types";
 import { Button, Flex, Stack, Table } from "@mantine/core";
 import { formatDate } from "@/helpers/dateUtils";
+import { NewProcessModal } from "./NewProcessModal";
 
 interface ProcessesPanelProps {
   processes: DetailedProcess[];
@@ -51,6 +52,8 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
         <Flex mt={16}>
           <Button px="34px">Novo processo</Button>
         </Flex>
+
+        <NewProcessModal opened={true}/>
       </Stack>
     </>
   );

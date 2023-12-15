@@ -57,6 +57,16 @@ export interface Evolution {
   created_at: string;
 }
 
+export interface Process {
+  id: number;
+  code: string;
+  client_id: number;
+  start_date: string;
+  description: string;
+}
+
+export interface ProcessForSave extends Omit<Process, "id"> {}
+
 export interface DetailedProcess {
   id: number;
   code: string;
@@ -66,7 +76,6 @@ export interface DetailedProcess {
   observations: Observation[];
   evolutions: Evolution[];
 }
-
 
 export interface SimpleProcess {
   id: number;
