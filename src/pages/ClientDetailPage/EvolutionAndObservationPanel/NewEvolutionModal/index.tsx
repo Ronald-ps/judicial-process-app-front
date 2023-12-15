@@ -49,7 +49,12 @@ export const NewEvolutionModal = (props: NewEvolutionModalProps) => {
 
   return (
     <>
-      <Modal opened={props.opened} onClose={props.onClose} title={props.title}>
+      <Modal
+        opened={props.opened}
+        onClose={props.onClose}
+        title={props.title}
+        centered
+      >
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -75,6 +80,7 @@ export const NewEvolutionModal = (props: NewEvolutionModalProps) => {
               variant="filled"
               size="sm"
               autosize
+              data-autofocus
               value={description}
               onChange={(event) => setDescription(event.currentTarget.value)}
             />

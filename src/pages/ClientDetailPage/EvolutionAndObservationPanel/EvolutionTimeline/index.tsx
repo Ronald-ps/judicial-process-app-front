@@ -25,7 +25,7 @@ export const EvolutionItem = (props: ProcessItemProps) => {
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate(props.evolution.created_at)}
+        {formatDate({dateString: props.evolution.created_at})}
       </Text>
     </>
   );

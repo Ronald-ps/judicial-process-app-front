@@ -23,21 +23,25 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
             {props.processes.map((process) => (
               <Table.Tr>
                 <Table.Td>{process.code}</Table.Td>
-                <Table.Td>{formatDate(process.start_date)}</Table.Td>
+                <Table.Td>
+                  {formatDate({ dateString: process.start_date })}
+                </Table.Td>
                 <Table.Td>
                   {process.evolutions.length
-                    ? formatDate(
-                        process.evolutions[process.evolutions.length - 1]
-                          .created_at
-                      )
+                    ? formatDate({
+                        dateString:
+                          process.evolutions[process.evolutions.length - 1]
+                            .created_at,
+                      })
                     : "Nenhuma evolução registrada"}
                 </Table.Td>
                 <Table.Td>
                   {process.observations.length
-                    ? formatDate(
-                        process.evolutions[process.evolutions.length - 1]
-                          .created_at
-                      )
+                    ? formatDate({
+                        dateString:
+                          process.evolutions[process.evolutions.length - 1]
+                            .created_at,
+                      })
                     : "Nenhuma observação registrada"}
                 </Table.Td>
               </Table.Tr>

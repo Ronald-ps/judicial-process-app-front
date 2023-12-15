@@ -1,9 +1,7 @@
 import type { Observation } from "@services/client/types";
 import { Box, Stack } from "@mantine/core";
 import { ScrollAreaAutosize, Timeline, Text } from "@mantine/core";
-import {
-  IconMessageDots,
-} from "@tabler/icons-react";
+import { IconMessageDots } from "@tabler/icons-react";
 import { formatDate } from "@/helpers/dateUtils";
 
 interface ProcessItemProps {
@@ -21,7 +19,7 @@ export const ObservationItem = (props: ProcessItemProps) => {
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate(props.observation.created_at)}
+        {formatDate({ dateString: props.observation.created_at })}
       </Text>
     </>
   );

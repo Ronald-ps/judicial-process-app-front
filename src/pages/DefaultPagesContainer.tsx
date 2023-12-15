@@ -3,12 +3,14 @@ import { AppShell, Box, Burger, Group, NavLink, Text } from "@mantine/core";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ROUTES, ROUTER_PATHS } from "./routers";
+import { useMatchRouterPath } from "./hooks";
 
 export const DefaultPagesContainer = () => {
   const [opened, { toggle }] = useDisclosure();
   const navigate = useNavigate();
   const location = useLocation();
   const { ref: mainRef, height: mainHeight } = useElementSize();
+  const matchRouterPath = useMatchRouterPath();
 
   return (
     <AppShell
@@ -30,14 +32,16 @@ export const DefaultPagesContainer = () => {
         <NavLink
           label="Clientes"
           onClick={() => navigate(ROUTER_PATHS.CLIENTS)}
-          active={Object.values(CLIENT_ROUTES).includes(location.pathname)}
+          active={Object.values(CLIENT_ROUTES).includes(
+            matchRouterPath(location.pathname)
+          )}
         />
       </AppShell.Navbar>
       <AppShell.Main ref={mainRef}>
         {/* mainheight será um valor float, o que garante que alturas relativas vinda
         dos elementos filhos (Outlet) funcionarão corretamente */}
         <Box h={`${mainHeight}px`}>
-            <Outlet />
+          <Outlet />
         </Box>
       </AppShell.Main>
     </AppShell>

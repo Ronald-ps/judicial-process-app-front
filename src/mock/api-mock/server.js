@@ -91,6 +91,23 @@ server.get(`${ENDPOINTS.client}/:clientId`, (req, res) => {
     res.status(404).json({ message: "Client not found" });
   }
 });
+server.patch(`${ENDPOINTS.client}/:clientId`, (req, res) => {
+  const { clientId } = req.params;
+  const clientsWrapper = routers.db.get("client");
+  const clients = clientsWrapper.value();
+  const client = clients.find((client) => client.id === Number(clientId));
+
+  if (client) {
+    const updatedClient = { ...client, ...req.body };
+    clientsWrapper
+      .find({ id: Number(clientId) })
+      .assign(updatedClient)
+      .write();
+    res.json(updatedClient);
+  } else {
+    res.status(404).json({ message: "Client not found" });
+  }
+});
 
 server.use(ENDPOINTS.legalProcess, (req, res, next) => {
   const legalProcess = routers.db.get("legalProcesses").value();

@@ -1,3 +1,4 @@
+import { formatDate } from "@/helpers/dateUtils";
 import { useNavigateWithConstructRoute } from "@/pages/hooks";
 import { ROUTER_PATHS } from "@/pages/routers";
 import { Box, Button, Flex, Grid, Stack, Text } from "@mantine/core";
@@ -42,7 +43,10 @@ export const InformationPanel = (props: InformationPanelProps) => {
               <InformationItem label="RG" value={client.rg} />
               <InformationItem
                 label="Data de nascimento"
-                value={client.birth_date}
+                value={formatDate({
+                  dateString: client.birth_date,
+                  withTime: false,
+                })}
               />
               <InformationItem label="Telefone" value={client.phone} />
               <InformationItem label="Celular" value={client.cellphone} />
@@ -74,9 +78,16 @@ export const InformationPanel = (props: InformationPanelProps) => {
         </Grid>
 
         <Flex justify={"end"} pr={40} pt={30}>
-          <Button onClick={() => {
-            navigate({routerPath: ROUTER_PATHS.EDIT_CLIENT, params: {clientId: client.id}})
-          }}>Editar informações</Button>
+          <Button
+            onClick={() => {
+              navigate({
+                routerPath: ROUTER_PATHS.EDIT_CLIENT,
+                params: { clientId: client.id },
+              });
+            }}
+          >
+            Editar informações
+          </Button>
         </Flex>
       </Stack>
     </div>

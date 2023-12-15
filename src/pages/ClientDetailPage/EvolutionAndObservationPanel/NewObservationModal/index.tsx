@@ -49,7 +49,12 @@ export const NewObservationModal = (props: NewObservationModalProps) => {
 
   return (
     <>
-      <Modal opened={props.opened} onClose={props.onClose} title={props.title}>
+      <Modal
+        opened={props.opened}
+        onClose={props.onClose}
+        title={props.title}
+        centered
+      >
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -76,6 +81,7 @@ export const NewObservationModal = (props: NewObservationModalProps) => {
               size="sm"
               autosize
               value={description}
+              data-autofocus
               onChange={(event) => setDescription(event.currentTarget.value)}
             />
             <Button type="submit" loading={loading}>
