@@ -1,6 +1,7 @@
-import axios from "axios"
+import axios from "axios";
 
-const baseUrl = "http://localhost:3000/"
+const baseUrl: string | undefined = import.meta.env.VITE_BACKEND_URL; /* .env */
+if (!baseUrl) throw new Error("VITE_BACKEND_URL is not defined");
 
 export const defaultClient = axios.create({
   baseURL: baseUrl,
