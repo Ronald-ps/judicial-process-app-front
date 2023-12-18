@@ -7,7 +7,7 @@ interface ContainerVerticalAnimationProps {
 }
 export const ContainerVerticalAnimationComponent = (
   props: ContainerVerticalAnimationProps,
-  ref: any /* essa ref serve pra fazer verificações se o componente está em visualização */
+  ref: React.Ref<HTMLDivElement> /* essa ref serve pra fazer verificações se o componente está em visualização */
 ) => {
   return (
     <div
