@@ -23,20 +23,10 @@ class TokenService {
   }
 
   getCurrentToken(): string | null {
-    console.log(this);
-    if (!this.token) return null;
-    if (this.verifyCurrentToken()) return this.token;
-    this.updateCurrentToken();
-    let tokenIsUpdated = false;
-    while (!tokenIsUpdated) {
-      if (this.verifyCurrentToken()) {
-        tokenIsUpdated = true;
-      }
-    }
     return this.token;
   }
 
-  async getRefreshToken() {
+  getRefreshToken() {
     if (this.refreshToken) return this.refreshToken;
     const refreshToken = localStorage.getItem("refresh_token");
     this.refreshToken = refreshToken;
@@ -44,15 +34,12 @@ class TokenService {
   }
 
   async updateCurrentToken() {
-    defaultClient
-      .get("/api/token/refresh", {
-        params: { refresh: this.getRefreshToken() },
-      })
-      .then((r) => {
-        this.token = r.data.access;
-        const actualDate = new Date();
-        this.expireTime = new Date(actualDate.getTime() + 5 * 60000);
-      });
+    if (!this.getRefreshToken()) throw new Error("Refresh Token not found");
+    const { access } =  await defaultClient
+      .post("/api/token/refresh/", { refresh: this.getRefreshToken() })
+      .then((r) => r.data);
+
+    this.setCurrentToken(access);
   }
 
   setCurrentToken(token: string) {
@@ -71,7 +58,6 @@ class TokenService {
       const { refresh, access } = await defaultClient
         .post("api/token/", { email, password })
         .then((r) => r.data);
-      console.log(refresh, access);
 
       this.saveRefreshToken(refresh);
       this.setCurrentToken(access);

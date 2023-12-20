@@ -5,7 +5,10 @@ export interface LoggedUser {
   email: string;
   name: string;
 }
-export const getLoggedUser = (): Promise<LoggedUser> => {
+export const getLoggedUser = async (): Promise<LoggedUser> => {
+  if (!DefaultClientTokenService.getCurrentToken()) {
+    await DefaultClientTokenService.updateCurrentToken();
+  }
   return defaultClient.get("/whoami").then((r) => r.data);
 };
 
