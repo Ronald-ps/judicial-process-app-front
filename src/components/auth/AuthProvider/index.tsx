@@ -67,10 +67,5 @@ interface AuthContextValueNotNull extends AuthContextValue {
 // Use a new file to share constants or functions between components
 export const useAuth = (): AuthContextValueNotNull => {
   const context = useContext(AuthContext);
-  if (!context.loggedUser || !context.setLoggedUser) {
-    throw new Error(
-      "authProvider.loggedUser or authProvider.setLoggedUser is inexistent"
-    );
-  }
   return context as AuthContextValueNotNull;
 };
