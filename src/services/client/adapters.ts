@@ -15,7 +15,7 @@ export const getClients = async ({
 }): Promise<Client[]> => {
   const clients: Client[] = await defaultClient
     .get(`client`, { params: { search_term: searchTerm || "" } })
-    .then((r) => r.data);
+    .then((r) => r.data.results);
   return clients;
 };
 

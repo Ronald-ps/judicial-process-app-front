@@ -17,7 +17,7 @@ export const ClientsList = (props: ClientsListProps) => {
     <Table.Tr key={client.id}>
       <Table.Td>
         <Text opacity="0.7" px="10px">
-          {i}
+          {client.id}
         </Text>
       </Table.Td>
       <Table.Td>
