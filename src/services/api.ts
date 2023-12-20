@@ -14,6 +14,11 @@ class TokenService {
   public token: string | null = null;
   private expireTime: Date | null = null;
   private refreshToken: string | null = null;
+  private client = axios.create({
+  baseURL: baseUrl,
+  timeout: 60000,
+  withCredentials: true,
+});
 
   verifyCurrentToken(): boolean {
     if (!this.token) return false;
@@ -35,7 +40,7 @@ class TokenService {
 
   async updateCurrentToken() {
     if (!this.getRefreshToken()) throw new Error("Refresh Token not found");
-    const { access } =  await defaultClient
+    const { access } =  await this.client
       .post("/api/token/refresh/", { refresh: this.getRefreshToken() })
       .then((r) => r.data);
 
@@ -55,7 +60,7 @@ class TokenService {
 
   async setRefreshToken(email: string, password: string) {
     try {
-      const { refresh, access } = await defaultClient
+      const { refresh, access } = await this.client
         .post("api/token/", { email, password })
         .then((r) => r.data);
 
@@ -70,7 +75,10 @@ class TokenService {
 const tokenService = new TokenService();
 
 defaultClient.interceptors.request.use(
-  (config) => {
+  async (config) => {
+    if (!tokenService.verifyCurrentToken()) {
+      await tokenService.updateCurrentToken();
+    }
     const token = tokenService.getCurrentToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
