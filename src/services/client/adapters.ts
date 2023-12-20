@@ -5,17 +5,16 @@ import type {
   DetailedProcess,
   Evolution,
   ProcessForSave,
-  Process,
   SimpleProcess,
 } from "./types";
 
 export const getClients = async ({
-  name,
+  searchTerm,
 }: {
-  name?: string;
+  searchTerm?: string;
 }): Promise<Client[]> => {
   const clients: Client[] = await defaultClient
-    .get(`client`, { params: { name: name || "" } })
+    .get(`client`, { params: { search_term: searchTerm || "" } })
     .then((r) => r.data);
   return clients;
 };

@@ -12,8 +12,8 @@ export const ClientListPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [loadingNewClient, setLoadingNewClient] = useState(false);
 
-  const getClients = async (search_term?: string) => {
-    const clients = await getClientsService({ name: search_term });
+  const getClients = async (searchTerm?: string) => {
+    const clients = await getClientsService({ searchTerm });
     setClients(clients);
   };
 
