@@ -36,8 +36,8 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
             <Table.Tr>
               <Table.Th>Nº</Table.Th>
               <Table.Th>Data de início</Table.Th>
-              <Table.Th>Última evolução</Table.Th>
-              <Table.Th>Última observação</Table.Th>
+              <Table.Th>Serviço</Table.Th>
+              {/* <Table.Th>Última observação</Table.Th> */}
             </Table.Tr>
           </Table.Thead>
 
@@ -49,22 +49,7 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
                   {formatDate({ dateString: process.start_date })}
                 </Table.Td>
                 <Table.Td>
-                  {process.evolutions.length
-                    ? formatDate({
-                        dateString:
-                          process.evolutions[process.evolutions.length - 1]
-                            .created_at,
-                      })
-                    : "Nenhuma evolução registrada"}
-                </Table.Td>
-                <Table.Td>
-                  {process.observations.length
-                    ? formatDate({
-                        dateString:
-                          process.evolutions[process.evolutions.length - 1]
-                            .created_at,
-                      })
-                    : "Nenhuma observação registrada"}
+                  {process.type}
                 </Table.Td>
               </Table.Tr>
             ))}

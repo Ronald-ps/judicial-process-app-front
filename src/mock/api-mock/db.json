@@ -421,7 +421,7 @@
       "id": 1,
       "client_id": 1,
       "code": "123456789",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Processo para reaver marcas e fechar comercios que usam ilegalmente a marca do cliente",
@@ -504,7 +504,7 @@
       "id": 2,
       "client_id": 1,
       "code": "987654321",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Descrição do processo 2",
@@ -587,7 +587,7 @@
       "id": 3,
       "client_id": 1,
       "code": "123098765",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Descrição do processo 3",
@@ -670,7 +670,7 @@
       "id": 4,
       "client_id": 1,
       "code": "567890123",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Descrição do processo 4",
@@ -753,7 +753,7 @@
       "id": 5,
       "client_id": 1,
       "code": "234567890",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Descrição do processo 5",
@@ -836,7 +836,7 @@
       "id": 6,
       "client_id": 2,
       "code": "234567890",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01",
       "description": "Descrição do processo 5",
@@ -1114,6 +1114,13 @@
       "process_id": "1",
       "process_code": "123456789",
       "created_at": "2023-12-15T01:42:17.987Z"
+    },
+    {
+      "id": 23,
+      "description": "Glauco site consolide dinheiro magisterio",
+      "process_id": "2",
+      "process_code": "123456789",
+      "created_at": "2023-12-15T18:49:48.482Z"
     }
   ],
   "process": [
@@ -1121,7 +1128,7 @@
       "id": 1,
       "client_id": 1,
       "code": "123456789",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01"
     },
@@ -1129,7 +1136,7 @@
       "id": 3,
       "client_id": 1,
       "code": "123098765",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01"
     },
@@ -1137,7 +1144,7 @@
       "id": 4,
       "client_id": 1,
       "code": "567890123",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01"
     },
@@ -1145,7 +1152,7 @@
       "id": 5,
       "client_id": 1,
       "code": "234567890",
-      "type": "acao_de_cobranca",
+      "type": "Registro de marketing",
       "stage": "execução",
       "start_date": "2021-01-01"
     }

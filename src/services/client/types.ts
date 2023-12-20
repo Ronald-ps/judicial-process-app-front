@@ -75,6 +75,7 @@ export interface DetailedProcess {
   description: string;
   observations: Observation[];
   evolutions: Evolution[];
+  type: string;
 }
 
 export interface SimpleProcess {

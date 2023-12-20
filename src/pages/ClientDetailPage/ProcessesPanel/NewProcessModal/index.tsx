@@ -11,7 +11,7 @@ interface NewProcessModalProps {
   onClose: () => void;
   onSave: (process: DetailedProcess) => void;
   opened: boolean;
-  clientId: number;
+  clientId: number | string;
 }
 export const NewProcessModal = (props: NewProcessModalProps) => {
   const handleSubmit = async (values: ProcessForSave) => {
