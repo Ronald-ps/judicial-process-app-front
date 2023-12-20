@@ -38,7 +38,7 @@ export interface Client {
 }
 
 export interface ClientForSave extends Omit<Client, "id"> {
-  date: string | Date;
+  birth_date: string | Date;
 }
 
 export interface Observation {

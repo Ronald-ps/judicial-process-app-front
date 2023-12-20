@@ -9,6 +9,7 @@ import { AnimationPageContainer } from "@components/generic/animation/AnimationP
 export const NewClientPage = () => {
   const navigate = useNavigate();
   const handleSubmit = async (client: ClientForSave) => {
+    client.birth_date = client.birth_date.toISOString().split('T')[0];
     await saveClient(client);
     return;
   };

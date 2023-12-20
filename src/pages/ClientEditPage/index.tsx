@@ -23,6 +23,9 @@ export const ClientEditPage = () => {
         clientToSave[key] = clientToUpdate[key];
       }
     }
+    if (clientToSave.birth_date) {
+      clientToSave.birth_date = clientToSave.birth_date.toISOString().split('T')[0];
+    }
     const updatedClient = await updateClient(clientToSave, clientId);
     navigate({
       routerPath: CLIENT_ROUTES.CLIENT_DETAIL,

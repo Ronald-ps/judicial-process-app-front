@@ -21,7 +21,7 @@ export const getClients = async ({
 
 export const saveClient = async (client: ClientForSave): Promise<Client> => {
   const savedClient: Client = await defaultClient
-    .post(`client`, client)
+    .post(`client/`, client)
     .then((r) => r.data);
   return savedClient;
 };
@@ -31,7 +31,7 @@ export const updateClient = async (
   clientId: number | string
 ): Promise<Client> => {
   const updatedClient: Client = await defaultClient
-    .patch(`client/${clientId}`, client, {
+    .patch(`client/${clientId}/`, client, {
       headers: { "Content-Type": "application/json" },
     })
     .then((r) => r.data);
@@ -54,7 +54,7 @@ export const getProcesses = async (clientId: number) => {
 
 export const processCreate = async (process: ProcessForSave) => {
   const savedProcess: DetailedProcess = await defaultClient
-    .post(`process`, process)
+    .post(`process/`, process)
     .then(({ data }) => data);
   return savedProcess;
 };
@@ -71,7 +71,7 @@ export const evolutionCreate = async (
   description: string
 ) => {
   const evolutionCreated: Evolution = await defaultClient
-    .post(`evolution`, { description, process_id: processId })
+    .post(`evolution/`, { description, process: processId })
     .then(({ data }) => data);
   return evolutionCreated;
 };
@@ -81,7 +81,7 @@ export const observationCreate = async (
   description: string
 ) => {
   const observationCreated: Evolution = await defaultClient
-    .post(`observation`, { description, process_id: processId })
+    .post(`observation/`, { description, process: processId })
     .then(({ data }) => data);
   return observationCreated;
 };
