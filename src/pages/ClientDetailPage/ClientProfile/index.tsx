@@ -2,6 +2,7 @@ import type { Client } from "@services/client/types";
 import { getProfileImage } from "@services/client/adapters";
 import { useEffect, useState } from "react";
 import { Avatar, Box, Group, Stack, Text } from "@mantine/core";
+import { ModalEditImage } from "./ModalEditImage";
 
 interface ClientProfileProps {
   client: Client;
@@ -10,11 +11,13 @@ interface ClientProfileProps {
 }
 export const ClientProfile = (props: ClientProfileProps) => {
   const [imageUrl, setImageUrl] = useState<string>("");
+  const [editImageOpen, setEditImageOpen] = useState(false);
+
   useEffect(() => {
     const getImage = async () => {
       const imageBlob = await getProfileImage(props.client.id);
       if (imageBlob.type === "application/json") {
-        return
+        return;
       }
       const imageUrl = window.URL.createObjectURL(imageBlob);
       setImageUrl(imageUrl);
@@ -28,13 +31,18 @@ export const ClientProfile = (props: ClientProfileProps) => {
     <Box h="100px">
       {props.client && (
         <Group>
-          {imageUrl ? (
-            <Avatar src={imageUrl} size="xl" />
-          ) : (
-            <Avatar color="cyan" size="xl">
-              {props.client.first_name.substring(0, 2)}
-            </Avatar>
-          )}
+          <Box
+            onClick={() => setEditImageOpen(true)}
+            style={{ cursor: "pointer" }}
+          >
+            {imageUrl ? (
+              <Avatar src={imageUrl} size="xl" />
+            ) : (
+              <Avatar color="cyan" size="xl">
+                {props.client.first_name.substring(0, 2)}
+              </Avatar>
+            )}
+          </Box>
           <Stack>
             <Text fw={500} fz={20}>
               {props.client.first_name} {props.client.last_name}
@@ -45,6 +53,11 @@ export const ClientProfile = (props: ClientProfileProps) => {
           </Stack>
         </Group>
       )}
+      <ModalEditImage
+        opened={editImageOpen}
+        imageUrl={imageUrl}
+        onClose={() => setEditImageOpen(false)}
+      />
     </Box>
   );
 };
