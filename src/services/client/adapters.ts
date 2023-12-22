@@ -86,15 +86,31 @@ export const observationCreate = async (
   return observationCreated;
 };
 
-
 export const getProfileImage = async (clientId: number | string) => {
-    const profileImage: Blob = await defaultClient
-      .get(`client/${clientId}/profile-image`, {
-        responseType: "blob",
-        headers: {
-          Accept: "image/jpeg",
-        }
-      })
-      .then((response) => response.data);
-    return profileImage;
-  }
+  const profileImage: Blob = await defaultClient
+    .get(`client/${clientId}/profile-image`, {
+      responseType: "blob",
+      // headers: {
+      //   Accept: "image/jpeg",
+      // },
+    })
+    .then((response) => response.data);
+  return profileImage;
+};
+
+export const updateProfileImage = async (params: {
+  clientId: number | string;
+  file: File;
+}) => {
+  const formData = new FormData();
+  formData.append("profile-image", params.file);
+  console.log(params.file, formData);
+  const profileImage: Blob = await defaultClient
+    .post(`client/${params.clientId}/profile-image/`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .then((response) => response.data);
+  return profileImage;
+};

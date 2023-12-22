@@ -54,6 +54,7 @@ export const ClientProfile = (props: ClientProfileProps) => {
         </Group>
       )}
       <ModalEditImage
+        clientId={props.client?.id}
         opened={editImageOpen}
         imageUrl={imageUrl}
         onClose={() => setEditImageOpen(false)}
