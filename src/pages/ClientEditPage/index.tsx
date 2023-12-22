@@ -49,7 +49,7 @@ export const ClientEditPage = () => {
             onSubmit={handleSubmit}
             gap="50px"
             onCancel={() => {
-              navigate(CLIENT_ROUTES.CLIENTS);
+              navigate({routerPath: CLIENT_ROUTES.CLIENT_DETAIL, params: {clientId}});
             }}
             client={client}
           />

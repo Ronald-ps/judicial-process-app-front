@@ -3,7 +3,7 @@ import { getClient as getClientService } from "@/services/client/adapters";
 import type { Client, DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
 import { getProcesses } from "@/services/client/adapters";
-import { Box, Stack, Tabs, rem } from "@mantine/core";
+import { Avatar, Box, Flex, Stack, Tabs, rem } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
 import { IconMessageCircle } from "@tabler/icons-react";
 import { IconSettings } from "@tabler/icons-react";
@@ -12,6 +12,7 @@ import { ProcessesPanel } from "./ProcessesPanel";
 import { EvolutionAndObservationPanel } from "./EvolutionAndObservationPanel";
 import { ContainerVerticalAnimation } from "./ContainerVerticalAnimation";
 import { useIntersection } from "@mantine/hooks";
+import { ClientProfile } from "./ClientProfile";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -50,6 +51,9 @@ export const ClientDetailPage = () => {
 
   return (
     <Stack>
+      <Flex>
+        <ClientProfile client={client} />
+      </Flex>
       <Tabs defaultValue="information">
         <Tabs.List>
           <Tabs.Tab
@@ -94,12 +98,12 @@ export const ClientDetailPage = () => {
 
         <Tabs.Panel value="evolutionAdnObservations">
           <Box h={24} />
-            <ContainerVerticalAnimation
-              inView={entryEAndO?.isIntersecting}
-              ref={refEvalutionAndObservation}
-            >
-              <EvolutionAndObservationPanel processes={processes || []} />
-            </ContainerVerticalAnimation>
+          <ContainerVerticalAnimation
+            inView={entryEAndO?.isIntersecting}
+            ref={refEvalutionAndObservation}
+          >
+            <EvolutionAndObservationPanel processes={processes || []} />
+          </ContainerVerticalAnimation>
         </Tabs.Panel>
       </Tabs>
     </Stack>
