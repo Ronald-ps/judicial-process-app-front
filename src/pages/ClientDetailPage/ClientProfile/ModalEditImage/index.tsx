@@ -8,6 +8,7 @@ interface ModalEditImageProps {
   clientId: string | number;
   onClose: () => void;
   imageUrl?: string;
+  onUpdate: () => void;
 }
 export const ModalEditImage = (props: ModalEditImageProps) => {
   const [imageSrc, setImageSrc] = useState("");
@@ -20,7 +21,14 @@ export const ModalEditImage = (props: ModalEditImageProps) => {
   }, [props.imageUrl, props.opened]);
 
   return (
-    <Modal opened={props.opened} onClose={props.onClose} top="20vh">
+    <Modal
+      opened={props.opened}
+      onClose={() => {
+        setImageSrc(props.imageUrl || "");
+        props.onClose();
+      }}
+      top="20vh"
+    >
       <Stack>
         <Image radius="md" src={imageSrc} />
         <form
@@ -46,6 +54,7 @@ export const ModalEditImage = (props: ModalEditImageProps) => {
             } catch (err) {
               console.log(err);
             }
+            await props.onUpdate();
             setLoading(false);
           }}
         >

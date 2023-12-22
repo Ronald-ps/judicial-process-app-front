@@ -13,15 +13,16 @@ export const ClientProfile = (props: ClientProfileProps) => {
   const [imageUrl, setImageUrl] = useState<string>("");
   const [editImageOpen, setEditImageOpen] = useState(false);
 
+  const getImage = async () => {
+    const imageBlob = await getProfileImage(props.client.id);
+    if (imageBlob.type === "application/json") {
+      return;
+    }
+    const imageUrl = window.URL.createObjectURL(imageBlob);
+    setImageUrl(imageUrl);
+  };
+
   useEffect(() => {
-    const getImage = async () => {
-      const imageBlob = await getProfileImage(props.client.id);
-      if (imageBlob.type === "application/json") {
-        return;
-      }
-      const imageUrl = window.URL.createObjectURL(imageBlob);
-      setImageUrl(imageUrl);
-    };
     if (props.client) {
       getImage();
     }
@@ -58,6 +59,7 @@ export const ClientProfile = (props: ClientProfileProps) => {
         opened={editImageOpen}
         imageUrl={imageUrl}
         onClose={() => setEditImageOpen(false)}
+        onUpdate={() => getImage()}
       />
     </Box>
   );

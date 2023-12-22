@@ -90,9 +90,6 @@ export const getProfileImage = async (clientId: number | string) => {
   const profileImage: Blob = await defaultClient
     .get(`client/${clientId}/profile-image`, {
       responseType: "blob",
-      // headers: {
-      //   Accept: "image/jpeg",
-      // },
     })
     .then((response) => response.data);
   return profileImage;
