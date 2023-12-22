@@ -8,7 +8,7 @@ import { ClientDetailPage } from "./ClientDetailPage";
 import { ClientEditPage } from "./ClientEditPage";
 
 export const CLIENT_ROUTES = {
-  CLIENTS: "/clients",
+  CLIENTS: "/",
   NEW_CLIENT: "/clients/add",
   CLIENT_DETAIL: "/clients/:clientId",
   EDIT_CLIENT: "/clients/:clientId/edit",

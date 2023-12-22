@@ -52,9 +52,23 @@ export const getProcesses = async (clientId: number) => {
   return process;
 };
 
-export const processCreate = async (process: ProcessForSave) => {
+export const processCreate = async (params: {
+  process: ProcessForSave;
+  clientId: number | string;
+}) => {
+  let date = "";
+  if (typeof params.process.start_date === "string") {
+    date = params.process.start_date.split("T")[0];
+  }
+  if (typeof params.process.start_date === "object") {
+    date = params.process.start_date.toISOString().split("T")[0];
+  }
   const savedProcess: DetailedProcess = await defaultClient
-    .post(`process/`, process)
+    .post(`process/`, {
+      ...params.process,
+      start_date: date,
+      client: params.clientId,
+    })
     .then(({ data }) => data);
   return savedProcess;
 };

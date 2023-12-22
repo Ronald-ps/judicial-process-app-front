@@ -61,7 +61,7 @@ export interface Process {
   id: number;
   code: string;
   client_id: number;
-  start_date: string;
+  start_date: string | Date;
   description: string;
 }
 

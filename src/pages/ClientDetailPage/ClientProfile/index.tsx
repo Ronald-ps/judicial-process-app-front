@@ -40,12 +40,15 @@ export const ClientProfile = (props: ClientProfileProps) => {
               <Avatar src={imageUrl} size="xl" />
             ) : (
               <Avatar color="cyan" size="xl">
-                {props.client.first_name.substring(0, 2)}
+                <span style={{ textTransform: "uppercase" }}>
+                  {props.client.first_name[0]}
+                  {props.client.last_name[0]}
+                </span>
               </Avatar>
             )}
           </Box>
           <Stack>
-            <Text fw={500} fz={20}>
+            <Text fw={500} fz={20} tt="capitalize">
               {props.client.first_name} {props.client.last_name}
             </Text>
             <Text c="dimmed">

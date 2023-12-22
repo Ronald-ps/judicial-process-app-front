@@ -1,9 +1,5 @@
 import { processCreate } from "@/services/client/adapters";
-import {
-  DetailedProcess,
-  Process,
-  ProcessForSave,
-} from "@/services/client/types";
+import { DetailedProcess, ProcessForSave } from "@/services/client/types";
 import { ProcessForm } from "@components/process/ProcessForm";
 import { Modal, Stack, Text } from "@mantine/core";
 
@@ -16,7 +12,10 @@ interface NewProcessModalProps {
 export const NewProcessModal = (props: NewProcessModalProps) => {
   const handleSubmit = async (values: ProcessForSave) => {
     try {
-      const process = await processCreate(values);
+      const process = await processCreate({
+        process: values,
+        clientId: props.clientId,
+      });
       await props.onSave(process);
     } catch (error) {
       console.error(error);

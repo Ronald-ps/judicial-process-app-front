@@ -42,7 +42,8 @@ export const ProcessForm = (props: ProcessFormProps) => {
         <Select
           label="Serviços"
           data={Object.keys(PROCESS_SERVICES).map((key: string) => ({
-            value: key,
+            // @ts-expect-error typescript as vezes é burro
+            value: PROCESS_SERVICES[key],
             // @ts-expect-error typescript as vezes é burro
             label: PROCESS_SERVICES[key],
           }))}
