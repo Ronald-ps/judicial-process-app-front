@@ -1,5 +1,5 @@
 import { getClients as getClientsService } from "@services/client/adapters";
-import type { Client } from "@services/client/types"
+import type { Client } from "@services/client/types";
 import { useEffect, useState } from "react";
 import { Box, Button, Flex, Input, Stack, Text, rem } from "@mantine/core";
 import { ClientsList } from "./ClientsList";
@@ -26,7 +26,7 @@ export const ClientListPage = () => {
   return (
     <AnimationPageContainer>
       <Stack gap="8px" h="100%">
-        <Stack h={rem("88%")} w="100%" align="center">
+        <Stack h={rem("88%")} w="100%" pl="64px">
           <Stack w="80%" h="100%" gap="24px">
             <Text size="xl" fw={600}>
               Clientes

@@ -50,7 +50,7 @@ export const ClientDetailPage = () => {
   }, [client]);
 
   return (
-    <Stack>
+    <Stack pl="64px">
       <Flex>
         <ClientProfile client={client} />
       </Flex>

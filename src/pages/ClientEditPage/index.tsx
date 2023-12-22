@@ -24,7 +24,9 @@ export const ClientEditPage = () => {
       }
     }
     if (clientToSave.birth_date) {
-      clientToSave.birth_date = clientToSave.birth_date.toISOString().split('T')[0];
+      clientToSave.birth_date = clientToSave.birth_date
+        .toISOString()
+        .split("T")[0];
     }
     const updatedClient = await updateClient(clientToSave, clientId);
     navigate({
@@ -43,13 +45,16 @@ export const ClientEditPage = () => {
 
   return (
     <AnimationPageContainer>
-      <Box pr="50px" pt="5px">
+      <Box pr="50px" pt="5px" pl="64px">
         {client && (
           <ClientForm
             onSubmit={handleSubmit}
             gap="50px"
             onCancel={() => {
-              navigate({routerPath: CLIENT_ROUTES.CLIENT_DETAIL, params: {clientId}});
+              navigate({
+                routerPath: CLIENT_ROUTES.CLIENT_DETAIL,
+                params: { clientId },
+              });
             }}
             client={client}
           />

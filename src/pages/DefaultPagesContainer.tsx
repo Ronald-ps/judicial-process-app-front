@@ -7,6 +7,7 @@ import { useMatchRouterPath } from "./hooks";
 
 export const DefaultPagesContainer = () => {
   const [opened, { toggle }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
   const navigate = useNavigate();
   const location = useLocation();
   const { ref: mainRef, height: mainHeight } = useElementSize();
@@ -15,12 +16,22 @@ export const DefaultPagesContainer = () => {
   return (
     <AppShell
       header={{ height: 60 }}
-      navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
+      navbar={{
+        width: 300,
+        breakpoint: "sm",
+        collapsed: { mobile: !opened, desktop: !desktopOpened },
+      }}
       padding="md"
     >
       <AppShell.Header>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <Burger
+            opened={desktopOpened}
+            onClick={toggleDesktop}
+            visibleFrom="sm"
+            size="sm"
+          />
           <Box>
             <Text fw={700} c="#1c1642" fz={"1.6rem"}>
               Plural Patentes
