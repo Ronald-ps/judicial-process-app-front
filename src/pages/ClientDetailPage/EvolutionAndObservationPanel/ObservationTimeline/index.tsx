@@ -42,6 +42,9 @@ export const ObservationTimeline = (props: ObservationTimelineProps) => {
               <ObservationItem observation={observation} />
             </Timeline.Item>
           ))}
+          {!props.observations.length ? (
+            <Text c="dimmed">Nenhuma observação registrada</Text>
+          ) : null}
         </Timeline>
       </ScrollAreaAutosize>
     </Stack>

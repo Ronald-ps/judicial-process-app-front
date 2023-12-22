@@ -1,12 +1,7 @@
-import type { DetailedProcess, Evolution } from "@services/client/types";
+import type { Evolution } from "@services/client/types";
 import { Box, Stack } from "@mantine/core";
 import { ScrollAreaAutosize, Timeline, Text } from "@mantine/core";
-import {
-  IconGitBranch,
-  IconGitCommit,
-  IconGitPullRequest,
-  IconMessageDots,
-} from "@tabler/icons-react";
+import { IconMessageDots } from "@tabler/icons-react";
 import classes from "./EvolutionItem.module.css";
 import { formatDate } from "@/helpers/dateUtils";
 
@@ -48,6 +43,9 @@ export const EvolutionTimeline = (props: EvolutionTimelineProps) => {
               <EvolutionItem evolution={evolution} />
             </Timeline.Item>
           ))}
+          {!props.evolutions.length ? (
+            <Text c="dimmed">Nenhuma evolução registrada</Text>
+          ) : null}
         </Timeline>
       </ScrollAreaAutosize>
     </Stack>
