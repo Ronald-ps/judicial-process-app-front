@@ -8,10 +8,16 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 
-export const NewHonoraryModal = () => {
+
+interface NewHonoraryModalProps {
+  opened: boolean;
+  onClose: () => void;
+  onSubmit: () => void;
+}
+export const NewHonoraryModal = (props: NewHonoraryModalProps) => {
   // const useForm
   return (
-    <Modal onClose={() => {}} opened={true}>
+    <Modal onClose={props.onClose} opened={props.opened}>
       <Modal.Title>Novo honorário</Modal.Title>
       <Box mt="30px"/>
       <form>

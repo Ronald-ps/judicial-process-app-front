@@ -1,12 +1,14 @@
 import { formatDate } from "@/helpers/dateUtils";
 import { Honorary } from "@/services/client/types";
-import { Button, Flex, Stack, Table } from "@mantine/core";
+import { Button, Flex, Stack, Table, Text } from "@mantine/core";
 import { NewHonoraryModal } from "./NewHonoraryModal";
+import { useState } from "react";
 
 interface FinancialPanelProps {
   honoraries: Honorary[];
 }
 export const FinancialPanel = (props: FinancialPanelProps) => {
+  const [newHonoraryOpen, setNewHonoraryOpen] = useState(false);
   return (
     <>
       <Stack>
@@ -24,7 +26,9 @@ export const FinancialPanel = (props: FinancialPanelProps) => {
             {props.honoraries.map((honor) => (
               <Table.Tr key={honor.id}>
                 <Table.Td>{formatDate({ date: honor.date })}</Table.Td>
-                <Table.Td>{honor.description}</Table.Td>
+                <Table.Td>
+                  <Text lineClamp={1}>{honor.description}</Text>
+                </Table.Td>
                 <Table.Td>{honor.value}</Table.Td>
                 <Table.Td>{honor.paid_value}</Table.Td>
                 <Table.Td>{honor.value - honor.paid_value}</Table.Td>
@@ -34,10 +38,18 @@ export const FinancialPanel = (props: FinancialPanelProps) => {
         </Table>
 
         <Flex>
-          <Button>Novo honorário</Button>
+          <Button onClick={() => setNewHonoraryOpen(true)}>
+            Novo honorário
+          </Button>
         </Flex>
       </Stack>
-      <NewHonoraryModal />
+      <NewHonoraryModal
+        opened={newHonoraryOpen}
+        onClose={() => {
+          setNewHonoraryOpen(false);
+        }}
+        onSubmit={() => {}}
+      />
     </>
   );
 };
