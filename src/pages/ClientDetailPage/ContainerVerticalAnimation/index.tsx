@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 interface ContainerVerticalAnimationProps {
-  inView?: boolean;
+  inView: boolean;
   animationTime?: number;
   children: React.ReactNode;
 }

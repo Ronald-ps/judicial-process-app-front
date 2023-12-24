@@ -44,7 +44,7 @@ export const InformationPanel = (props: InformationPanelProps) => {
               <InformationItem
                 label="Data de nascimento"
                 value={formatDate({
-                  dateString: client.birth_date,
+                  date: client.birth_date,
                   withTime: false,
                 })}
               />

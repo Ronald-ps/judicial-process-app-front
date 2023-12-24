@@ -13,6 +13,7 @@ import { EvolutionAndObservationPanel } from "./EvolutionAndObservationPanel";
 import { ContainerVerticalAnimation } from "./ContainerVerticalAnimation";
 import { useIntersection } from "@mantine/hooks";
 import { ClientProfile } from "./ClientProfile";
+import { FinancialPanel } from "./FinancialPanel";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -74,12 +75,18 @@ export const ClientDetailPage = () => {
           >
             Evoluções e observações
           </Tabs.Tab>
+          <Tabs.Tab
+            value="financial"
+            leftSection={<IconSettings style={iconStyle} />}
+          >
+            Financeiro
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="information">
           <Box h={24} />
           <ContainerVerticalAnimation
-            inView={entryInformation?.isIntersecting}
+            inView={entryInformation?.isIntersecting ?? true}
             ref={refInformation}
           >
             {client && <InformationPanel client={client} />}
@@ -89,7 +96,7 @@ export const ClientDetailPage = () => {
         <Tabs.Panel value="processes">
           <Box h={24} />
           <ContainerVerticalAnimation
-            inView={entryProcesses?.isIntersecting}
+            inView={entryProcesses?.isIntersecting ?? true}
             ref={refProcesses}
           >
             <ProcessesPanel processes={processes || []} />
@@ -99,10 +106,16 @@ export const ClientDetailPage = () => {
         <Tabs.Panel value="evolutionAdnObservations">
           <Box h={24} />
           <ContainerVerticalAnimation
-            inView={entryEAndO?.isIntersecting}
+            inView={entryEAndO?.isIntersecting ?? true}
             ref={refEvalutionAndObservation}
           >
             <EvolutionAndObservationPanel processes={processes || []} />
+          </ContainerVerticalAnimation>
+        </Tabs.Panel>
+
+        <Tabs.Panel value="financial">
+          <ContainerVerticalAnimation inView={true}>
+            <FinancialPanel honoraries={[]}/>
           </ContainerVerticalAnimation>
         </Tabs.Panel>
       </Tabs>

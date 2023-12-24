@@ -6,7 +6,7 @@ import type {
 import { EvolutionTimeline } from "./EvolutionTimeline";
 import { ObservationTimeline } from "./ObservationTimeline";
 import { useEffect, useState } from "react";
-import { Box, Button, Group, Stack, Text } from "@mantine/core";
+import { Box, Button, Group, Space, Stack, Text } from "@mantine/core";
 import classes from "./EvolutionAndObservationPanel.module.css";
 import { NewEvolutionModal } from "./NewEvolutionModal";
 import { NewObservationModal } from "./NewObservationModal";
@@ -62,8 +62,12 @@ export const EvolutionAndObservationPanel = (
 
   return (
     <Stack>
-      <Group className={classes.timelineContainer} gap={48}>
-        <Box w="500px">
+      <Group
+        className="EvolutionAndObservationPanelContainer"
+        gap={48}
+        align="top"
+      >
+        <Box w="500px" mih="400px">
           <Text fw={400} mb="24px">
             Evoluções
           </Text>

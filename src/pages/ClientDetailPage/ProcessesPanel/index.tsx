@@ -1,4 +1,4 @@
-import type { DetailedProcess, Process } from "@services/client/types";
+import type { DetailedProcess } from "@services/client/types";
 import { Button, Flex, Stack, Table } from "@mantine/core";
 import { formatDate } from "@/helpers/dateUtils";
 import { NewProcessModal } from "./NewProcessModal";
@@ -42,11 +42,11 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
           </Table.Thead>
 
           <Table.Tbody>
-            {processesCopy.map((process) => (
-              <Table.Tr key={process.id}>
+            {processesCopy.map((process, i) => (
+              <Table.Tr key={i}>
                 <Table.Td>{process.code}</Table.Td>
                 <Table.Td>
-                  {formatDate({ dateString: process.start_date })}
+                  {formatDate({ date: process.start_date })}
                 </Table.Td>
                 <Table.Td>
                   {process.type}

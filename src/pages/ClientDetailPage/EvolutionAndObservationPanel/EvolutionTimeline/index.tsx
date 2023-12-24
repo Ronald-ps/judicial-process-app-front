@@ -20,7 +20,7 @@ export const EvolutionItem = (props: ProcessItemProps) => {
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate({ dateString: props.evolution.created_at })}
+        {formatDate({ date: props.evolution.created_at })}
       </Text>
     </>
   );
@@ -43,7 +43,7 @@ export const EvolutionTimeline = (props: EvolutionTimelineProps) => {
               <EvolutionItem evolution={evolution} />
             </Timeline.Item>
           ))}
-          {!props.evolutions.length ? (
+          {props.evolutions.length > 0 ? (
             <Text c="dimmed">Nenhuma evolução registrada</Text>
           ) : null}
         </Timeline>

@@ -19,7 +19,7 @@ export const ObservationItem = (props: ProcessItemProps) => {
         </Text>
       </Box>
       <Text size="xs" mt={4} fw={300} c="#595959">
-        {formatDate({ dateString: props.observation.created_at })}
+        {formatDate({ date: props.observation.created_at })}
       </Text>
     </>
   );
@@ -33,6 +33,7 @@ export const ObservationTimeline = (props: ObservationTimelineProps) => {
   return (
     <Stack>
       <ScrollAreaAutosize mah={props.maxHeight || "500px"}>
+
         <Timeline active={-1} bulletSize={24} lineWidth={2}>
           {props.observations.map((observation) => (
             <Timeline.Item
@@ -42,7 +43,7 @@ export const ObservationTimeline = (props: ObservationTimelineProps) => {
               <ObservationItem observation={observation} />
             </Timeline.Item>
           ))}
-          {!props.observations.length ? (
+          {props.observations.length === 0 ? (
             <Text c="dimmed">Nenhuma observação registrada</Text>
           ) : null}
         </Timeline>
