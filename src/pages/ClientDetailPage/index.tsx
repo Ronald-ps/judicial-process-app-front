@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { getClient as getClientService } from "@/services/client/adapters";
-import type { Client, DetailedProcess } from "@/services/client/types";
+import { type Client, type DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
 import { getProcesses } from "@/services/client/adapters";
-import { Avatar, Box, Flex, Stack, Tabs, rem } from "@mantine/core";
+import { Box, Flex, Stack, Tabs, rem } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
 import { IconMessageCircle } from "@tabler/icons-react";
 import { IconSettings } from "@tabler/icons-react";
@@ -14,13 +14,16 @@ import { ContainerVerticalAnimation } from "./ContainerVerticalAnimation";
 import { useIntersection } from "@mantine/hooks";
 import { ClientProfile } from "./ClientProfile";
 import { FinancialPanel } from "./FinancialPanel";
+import { getHonoraries } from "@services/financial/adapters";
+import { Honorary } from "@services/financial/types";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
   const [processes, setProcesses] = useState<DetailedProcess[]>([]);
+  const [honoraries, setHonoraries] = useState([] as Honorary[]);
   const { ref: refProcesses, entry: entryProcesses } = useIntersection();
   const { ref: refInformation, entry: entryInformation } = useIntersection();
-  const { ref: refEvalutionAndObservation, entry: entryEAndO } =
+  const { ref: refEvolutionAndObservation, entry: entryEAndO } =
     useIntersection();
 
   const iconStyle = { width: rem(12), height: rem(12) };
@@ -41,6 +44,12 @@ export const ClientDetailPage = () => {
     setProcesses(processes);
   };
 
+  const getHonorariesByClient = async (clientId: number) => {
+    const honoraries = await getHonoraries(clientId);
+    console.log(honoraries)
+    setHonoraries(honoraries);
+  };
+
   useEffect(() => {
     getClient();
   }, []);
@@ -48,6 +57,11 @@ export const ClientDetailPage = () => {
   useEffect(() => {
     if (!client) return;
     getProcessesByClient(client.id);
+  }, [client]);
+
+  useEffect(() => {
+    if (!client) return;
+    getHonorariesByClient(client.id);
   }, [client]);
 
   return (
@@ -107,7 +121,7 @@ export const ClientDetailPage = () => {
           <Box h={24} />
           <ContainerVerticalAnimation
             inView={entryEAndO?.isIntersecting ?? true}
-            ref={refEvalutionAndObservation}
+            ref={refEvolutionAndObservation}
           >
             <EvolutionAndObservationPanel processes={processes || []} />
           </ContainerVerticalAnimation>
@@ -115,7 +129,7 @@ export const ClientDetailPage = () => {
 
         <Tabs.Panel value="financial">
           <ContainerVerticalAnimation inView={true}>
-            <FinancialPanel honoraries={[]}/>
+            <FinancialPanel honoraries={honoraries} />
           </ContainerVerticalAnimation>
         </Tabs.Panel>
       </Tabs>
