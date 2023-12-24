@@ -6,17 +6,24 @@ import { ClientListPage } from "./ClientListPage";
 import { ProtectedRoute } from "@components/auth/ProtectedRoute";
 import { ClientDetailPage } from "./ClientDetailPage";
 import { ClientEditPage } from "./ClientEditPage";
+import { ProcessDetailPage } from "./ProcessDetailPage";
 
 export const CLIENT_ROUTES = {
   CLIENTS: "/",
   NEW_CLIENT: "/clients/add",
   CLIENT_DETAIL: "/clients/:clientId",
   EDIT_CLIENT: "/clients/:clientId/edit",
+  PROCESS_DETAIL: "/processes/:processId",
+};
+
+export const PROCESS_ROUTES = {
+  PROCESS_DETAIL: "/processes/:processId",
 };
 
 export const ROUTER_PATHS = {
   LOGIN: "/login",
   ...CLIENT_ROUTES,
+  ...PROCESS_ROUTES,
 };
 
 export const router = createBrowserRouter([
@@ -41,6 +48,10 @@ export const router = createBrowserRouter([
           {
             path: ROUTER_PATHS.EDIT_CLIENT,
             element: <ClientEditPage />,
+          },
+          {
+            path: ROUTER_PATHS.PROCESS_DETAIL,
+            element: <ProcessDetailPage />,
           },
         ],
       },

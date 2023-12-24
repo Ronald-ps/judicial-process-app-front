@@ -88,6 +88,7 @@ export interface Honorary {
   id: number;
   date: Date | string;
   process: number;
+  process_code: string;
   description: string;
   value: number;
   paid_value: number;

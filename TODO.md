@@ -1,4 +1,4 @@
-# Pra fazer
+# Features
 
 1 - pagina de detalhes do processo
 2 - poder ver o texto completo de um honorário
@@ -7,3 +7,9 @@
 5 - Poder editar processo, honorário, evolução e observação
 6 - Poder salvar arquivo em Evoluções
 7 - Ter logs de uso no sistema
+
+
+# Fix
+
+# Refactor
+- Separa serviço de cliente e processos
