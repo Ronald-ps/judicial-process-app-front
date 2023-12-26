@@ -18,6 +18,8 @@ import { getHonoraries } from "@services/financial/adapters";
 import { type Honorary } from "@services/financial/types";
 import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 import { AnimationPageContainer } from "@/components/generic/animation/AnimationPageContainer";
+import { IconReportMoney } from "@tabler/icons-react";
+import { IconFileDollar } from "@tabler/icons-react";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -95,7 +97,7 @@ export const ClientDetailPage = () => {
               </Tabs.Tab>
               <Tabs.Tab
                 value="financial"
-                leftSection={<IconSettings style={iconStyle} />}
+                leftSection={<IconFileDollar style={iconStyle} />}
               >
                 Financeiro
               </Tabs.Tab>

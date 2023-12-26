@@ -1,7 +1,16 @@
 import { getClients as getClientsService } from "@services/client/adapters";
 import type { Client } from "@services/client/types";
 import { useEffect, useState } from "react";
-import { Box, Button, Flex, Input, Stack, Text, rem } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  Stack,
+  Text,
+  Title,
+  rem,
+} from "@mantine/core";
 import { ClientsList } from "./ClientsList";
 import { IconSearch } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
@@ -30,9 +39,7 @@ export const ClientListPage = () => {
         <Stack gap="8px" h="100%">
           <Stack h={rem("88%")} w="100%">
             <Stack w="80%" h="100%" gap="24px">
-              <Text size="xl" fw={600}>
-                Clientes
-              </Text>
+              <Title order={1}>Clientes</Title>
               <Stack w="100%">
                 <Flex w="100%" justify={"space-between"}>
                   <Input
