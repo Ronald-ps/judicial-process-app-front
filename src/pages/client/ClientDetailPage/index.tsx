@@ -17,6 +17,7 @@ import { FinancialPanel } from "./FinancialPanel";
 import { getHonoraries } from "@services/financial/adapters";
 import { type Honorary } from "@services/financial/types";
 import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
+import { AnimationPageContainer } from "@/components/generic/animation/AnimationPageContainer";
 
 export const ClientDetailPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -67,75 +68,78 @@ export const ClientDetailPage = () => {
 
   return (
     <PageDefaultMarginsContainer>
-      <Stack>
-        <Flex>
-          <ClientProfile client={client} />
-        </Flex>
-        <Tabs defaultValue="information">
-          <Tabs.List>
-            <Tabs.Tab
-              value="information"
-              leftSection={<IconPhoto style={iconStyle} />}
-            >
-              Informações pessoais
-            </Tabs.Tab>
-            <Tabs.Tab
-              value="processes"
-              leftSection={<IconMessageCircle style={iconStyle} />}
-            >
-              Processos
-            </Tabs.Tab>
-            <Tabs.Tab
-              value="evolutionAdnObservations"
-              leftSection={<IconSettings style={iconStyle} />}
-            >
-              Evoluções e observações
-            </Tabs.Tab>
-            <Tabs.Tab
-              value="financial"
-              leftSection={<IconSettings style={iconStyle} />}
-            >
-              Financeiro
-            </Tabs.Tab>
-          </Tabs.List>
+      <AnimationPageContainer>
+        <Stack>
+          <Flex>
+            <ClientProfile client={client} />
+          </Flex>
+          <Tabs defaultValue="information">
+            <Tabs.List>
+              <Tabs.Tab
+                value="information"
+                leftSection={<IconPhoto style={iconStyle} />}
+              >
+                Informações pessoais
+              </Tabs.Tab>
+              <Tabs.Tab
+                value="processes"
+                leftSection={<IconMessageCircle style={iconStyle} />}
+              >
+                Processos
+              </Tabs.Tab>
+              <Tabs.Tab
+                value="evolutionAdnObservations"
+                leftSection={<IconSettings style={iconStyle} />}
+              >
+                Evoluções e observações
+              </Tabs.Tab>
+              <Tabs.Tab
+                value="financial"
+                leftSection={<IconSettings style={iconStyle} />}
+              >
+                Financeiro
+              </Tabs.Tab>
+            </Tabs.List>
 
-          <Tabs.Panel value="information">
-            <Box h={24} />
-            <ContainerVerticalAnimation
-              inView={entryInformation?.isIntersecting ?? true}
-              ref={refInformation}
-            >
-              {client && <InformationPanel client={client} />}
-            </ContainerVerticalAnimation>
-          </Tabs.Panel>
+            <Tabs.Panel value="information">
+              <Box h={24} />
+              <ContainerVerticalAnimation
+                inView={entryInformation?.isIntersecting ?? true}
+                ref={refInformation}
+              >
+                {client && <InformationPanel client={client} />}
+              </ContainerVerticalAnimation>
+            </Tabs.Panel>
 
-          <Tabs.Panel value="processes">
-            <Box h={24} />
-            <ContainerVerticalAnimation
-              inView={entryProcesses?.isIntersecting ?? true}
-              ref={refProcesses}
-            >
-              <ProcessesPanel processes={processes || []} />
-            </ContainerVerticalAnimation>
-          </Tabs.Panel>
+            <Tabs.Panel value="processes">
+              <Box h={24} />
+              <ContainerVerticalAnimation
+                inView={entryProcesses?.isIntersecting ?? true}
+                ref={refProcesses}
+              >
+                <ProcessesPanel processes={processes || []} />
+              </ContainerVerticalAnimation>
+            </Tabs.Panel>
 
-          <Tabs.Panel value="evolutionAdnObservations">
-            <Box h={24} />
-            <ContainerVerticalAnimation
-              inView={entryEAndO?.isIntersecting ?? true}
-              ref={refEvolutionAndObservation}
-            >
-              <EvolutionAndObservationPanel processes={processes || []} />
-            </ContainerVerticalAnimation>
-          </Tabs.Panel>
+            <Tabs.Panel value="evolutionAdnObservations">
+              <Box h={24} />
+              <ContainerVerticalAnimation
+                inView={entryEAndO?.isIntersecting ?? true}
+                ref={refEvolutionAndObservation}
+              >
+                <EvolutionAndObservationPanel processes={processes || []} />
+              </ContainerVerticalAnimation>
+            </Tabs.Panel>
 
-          <Tabs.Panel value="financial">
-            <ContainerVerticalAnimation inView={true}>
-              <FinancialPanel honoraries={honoraries} />
-            </ContainerVerticalAnimation>
-          </Tabs.Panel>
-        </Tabs>
-      </Stack>
+            <Tabs.Panel value="financial">
+              <Box h={24} />
+              <ContainerVerticalAnimation inView={true}>
+                <FinancialPanel honoraries={honoraries} />
+              </ContainerVerticalAnimation>
+            </Tabs.Panel>
+          </Tabs>
+        </Stack>
+      </AnimationPageContainer>
     </PageDefaultMarginsContainer>
   );
 };

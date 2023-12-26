@@ -1,3 +1,4 @@
+import { AnimationPageContainer } from "@/components/generic/animation/AnimationPageContainer";
 import { ProcessesTable } from "@/components/process/ProcessesTable";
 import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 import { Input, Stack, Title } from "@mantine/core";
@@ -20,15 +21,17 @@ export const ProcessListPage = () => {
 
   return (
     <PageDefaultMarginsContainer>
-      <Stack>
-        <Title order={1}>Processos</Title>
-        <Input
-          placeholder="Número do processo..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <ProcessesTable processes={processes} />
-      </Stack>
+      <AnimationPageContainer>
+        <Stack>
+          <Title order={1}>Processos</Title>
+          <Input
+            placeholder="Número do processo..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <ProcessesTable processes={processes} />
+        </Stack>
+      </AnimationPageContainer>
     </PageDefaultMarginsContainer>
   );
 };
