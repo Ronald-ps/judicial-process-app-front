@@ -49,7 +49,7 @@ export const DefaultPagesContainer = () => {
         />
         <NavLink
           label="Processos"
-          onClick={() => navigate(ROUTER_PATHS.PROCESS_DETAIL)}
+          onClick={() => navigate(ROUTER_PATHS.PROCESSES)}
           active={Object.values(PROCESS_ROUTES).includes(
             matchRouterPath(location.pathname)
           )}

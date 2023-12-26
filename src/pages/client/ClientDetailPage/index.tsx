@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { getClient as getClientService } from "@/services/client/adapters";
 import { type Client, type DetailedProcess } from "@/services/client/types";
 import { useEffect, useState } from "react";
-import { getProcesses } from "@/services/client/adapters";
+import { getLegalProcessesByClient } from "@/services/client/adapters";
 import { Box, Flex, Stack, Tabs, rem } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
 import { IconMessageCircle } from "@tabler/icons-react";
@@ -41,7 +41,7 @@ export const ClientDetailPage = () => {
   };
 
   const getProcessesByClient = async (clientId: number) => {
-    const processes = await getProcesses(clientId);
+    const processes = await getLegalProcessesByClient(clientId);
     setProcesses(processes);
   };
 

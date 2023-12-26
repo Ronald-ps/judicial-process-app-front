@@ -1,5 +1,5 @@
 import type { DetailedProcess } from "@services/client/types";
-import { Table } from "@mantine/core";
+import { Table, Text } from "@mantine/core";
 import { formatDate } from "@/helpers/dateUtils";
 import { useNavigateWithConstructRoute } from "@/pages/hooks";
 import { ROUTER_PATHS } from "@/pages/routers";
@@ -17,7 +17,6 @@ export const ProcessesTable = (props: ProcessesTableProps) => {
           <Table.Th>Nº</Table.Th>
           <Table.Th>Data de início</Table.Th>
           <Table.Th>Serviço</Table.Th>
-          {/* <Table.Th>Última observação</Table.Th> */}
         </Table.Tr>
       </Table.Thead>
 
@@ -39,6 +38,11 @@ export const ProcessesTable = (props: ProcessesTableProps) => {
           </Table.Tr>
         ))}
       </Table.Tbody>
+      {props.processes.length === 0 && (
+        <Table.Caption>
+          <Text size="xl">Nenhum Processo</Text>
+        </Table.Caption>
+      )}
     </Table>
   );
 };

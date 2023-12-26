@@ -7,6 +7,7 @@ import { ProtectedRoute } from "@components/auth/ProtectedRoute";
 import { ClientDetailPage } from "./client/ClientDetailPage";
 import { ClientEditPage } from "./client/ClientEditPage";
 import { ProcessDetailPage } from "./process/ProcessDetailPage";
+import { ProcessListPage } from "./process/ProcessListPage";
 
 export const CLIENT_ROUTES = {
   CLIENTS: "/",
@@ -16,6 +17,7 @@ export const CLIENT_ROUTES = {
 };
 
 export const PROCESS_ROUTES = {
+  PROCESSES: "/processes",
   PROCESS_DETAIL: "/processes/:processId",
 };
 
@@ -47,6 +49,11 @@ export const router = createBrowserRouter([
           {
             path: ROUTER_PATHS.EDIT_CLIENT,
             element: <ClientEditPage />,
+          },
+          /* Processes */
+          {
+            path: ROUTER_PATHS.PROCESSES,
+            element: <ProcessListPage />,
           },
           {
             path: ROUTER_PATHS.PROCESS_DETAIL,

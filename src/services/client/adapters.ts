@@ -45,7 +45,7 @@ export const getClient = async (clientId: number | string) => {
   return client;
 };
 
-export const getProcesses = async (clientId: number) => {
+export const getLegalProcessesByClient = async (clientId: number) => {
   const process: DetailedProcess[] = await defaultClient
     .get(`client/${clientId}/legal-process`)
     .then(({ data }) => data);
