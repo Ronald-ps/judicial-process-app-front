@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { NewClientPage } from "./NewClientPage";
+import { NewClientPage } from "./client/NewClientPage";
 import { DefaultPagesContainer } from "./DefaultPagesContainer";
 import { LoginPage } from "./LoginPage";
-import { ClientListPage } from "./ClientListPage";
+import { ClientListPage } from "./client/ClientListPage";
 import { ProtectedRoute } from "@components/auth/ProtectedRoute";
-import { ClientDetailPage } from "./ClientDetailPage";
-import { ClientEditPage } from "./ClientEditPage";
-import { ProcessDetailPage } from "./ProcessDetailPage";
+import { ClientDetailPage } from "./client/ClientDetailPage";
+import { ClientEditPage } from "./client/ClientEditPage";
+import { ProcessDetailPage } from "./process/ProcessDetailPage";
 
 export const CLIENT_ROUTES = {
   CLIENTS: "/",

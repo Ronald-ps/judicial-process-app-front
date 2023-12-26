@@ -1,5 +1,4 @@
-import { formatDate } from "@/helpers/dateUtils";
-import { Honorary } from "@/services/client/types";
+import { type Honorary } from "@/services/client/types";
 import { Button, Flex, Stack, Table, Text } from "@mantine/core";
 import { NewHonoraryModal } from "./NewHonoraryModal";
 import { useState } from "react";

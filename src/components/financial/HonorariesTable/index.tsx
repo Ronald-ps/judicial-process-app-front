@@ -26,9 +26,13 @@ export const HonorariesTable = (props: HonorariesTableProps) => {
             <Table.Td>
               <Text lineClamp={1}>{honor.description}</Text>
             </Table.Td>
-            <Table.Td>{honor.value}</Table.Td>
-            <Table.Td>{honor.paid_value}</Table.Td>
-            <Table.Td>{honor.value - honor.paid_value}</Table.Td>
+            <Table.Td>{parseFloat(honor.value).toFixed(2)}</Table.Td>
+            <Table.Td>{parseFloat(honor.paid_value).toFixed(2)}</Table.Td>
+            <Table.Td>
+              {(parseFloat(honor.value) - parseFloat(honor.paid_value)).toFixed(
+                2
+              )}
+            </Table.Td>
           </Table.Tr>
         ))}
       </Table.Tbody>

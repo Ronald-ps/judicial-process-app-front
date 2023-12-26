@@ -3,11 +3,12 @@ import { Box } from "@mantine/core";
 import { saveClient, updateClient } from "@services/client/adapters";
 import type { ClientForSave, Client } from "@services/client/types";
 import { useNavigate, useParams } from "react-router-dom";
-import { CLIENT_ROUTES } from "../routers";
+import { CLIENT_ROUTES } from "@pages/routers";
 import { AnimationPageContainer } from "@components/generic/animation/AnimationPageContainer";
 import { getClient as getClientService } from "@services/client/adapters";
 import { useEffect, useState } from "react";
-import { useNavigateWithConstructRoute } from "../hooks";
+import { useNavigateWithConstructRoute } from "@pages/hooks";
+import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 
 export const ClientEditPage = () => {
   const [client, setClient] = useState<Client | null>(null);
@@ -44,22 +45,24 @@ export const ClientEditPage = () => {
   }, []);
 
   return (
-    <AnimationPageContainer>
-      <Box pr="50px" pt="5px" pl="64px">
-        {client && (
-          <ClientForm
-            onSubmit={handleSubmit}
-            gap="50px"
-            onCancel={() => {
-              navigate({
-                routerPath: CLIENT_ROUTES.CLIENT_DETAIL,
-                params: { clientId },
-              });
-            }}
-            client={client}
-          />
-        )}
-      </Box>
-    </AnimationPageContainer>
+    <PageDefaultMarginsContainer>
+      <AnimationPageContainer>
+        <Box>
+          {client && (
+            <ClientForm
+              onSubmit={handleSubmit}
+              gap="50px"
+              onCancel={() => {
+                navigate({
+                  routerPath: CLIENT_ROUTES.CLIENT_DETAIL,
+                  params: { clientId },
+                });
+              }}
+              client={client}
+            />
+          )}
+        </Box>
+      </AnimationPageContainer>
+    </PageDefaultMarginsContainer>
   );
 };

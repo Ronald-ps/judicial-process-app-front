@@ -7,6 +7,7 @@ import { ClientInfoShow } from "@/components/client/ClientInfoShow";
 import { EvolutionTimeline } from "@/components/process/EvolutionTimeline";
 import { ObservationTimeline } from "@/components/process/ObservationTimeline";
 import { HonorariesTable } from "@/components/financial/HonorariesTable";
+import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 
 export const ProcessDetailPage = () => {
   const [process, setProcess] = useState<null | DetailedProcess>(null);
@@ -26,32 +27,34 @@ export const ProcessDetailPage = () => {
   }, [processId]);
 
   return (
-    <Stack pl="64px" pb="64px">
-      <Title order={1} mb={32}>
-        Detalhes do processo {`Nº ${process?.code}`}
-      </Title>
-      {/*  */}
-      {process && (
-        <Stack gap={48}>
-          <Stack>
-            <Text>Informações do cliente</Text>
-            <ClientInfoShow client={process.client} />
-          </Stack>
+    <PageDefaultMarginsContainer>
+      <Stack>
+        <Title order={1} mb={32}>
+          Detalhes do processo {`Nº ${process?.code}`}
+        </Title>
+        {/*  */}
+        {process && (
+          <Stack gap={48}>
+            <Stack>
+              <Text>Informações do cliente</Text>
+              <ClientInfoShow client={process.client} />
+            </Stack>
 
-          <Stack>
-            <Text>Evoluções e observações</Text>
-            <Group>
-              <EvolutionTimeline evolutions={process.evolutions} />
-              <ObservationTimeline observations={process.observations} />
-            </Group>
-          </Stack>
+            <Stack>
+              <Text>Evoluções e observações</Text>
+              <Group>
+                <EvolutionTimeline evolutions={process.evolutions} />
+                <ObservationTimeline observations={process.observations} />
+              </Group>
+            </Stack>
 
-          <Stack>
-            <Text>Honorários do processo</Text>
-            <HonorariesTable honoraries={process.honoraries} />
+            <Stack>
+              <Text>Honorários do processo</Text>
+              <HonorariesTable honoraries={process.honoraries} />
+            </Stack>
           </Stack>
-        </Stack>
-      )}
-    </Stack>
+        )}
+      </Stack>
+    </PageDefaultMarginsContainer>
   );
 };

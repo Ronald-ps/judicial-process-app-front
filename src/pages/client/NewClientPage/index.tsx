@@ -3,8 +3,9 @@ import { Box } from "@mantine/core";
 import { saveClient } from "@services/client/adapters";
 import type { ClientForSave } from "@services/client/types";
 import { useNavigate } from "react-router-dom";
-import { CLIENT_ROUTES } from "../routers";
+import { CLIENT_ROUTES } from "@pages/routers";
 import { AnimationPageContainer } from "@components/generic/animation/AnimationPageContainer";
+import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 
 export const NewClientPage = () => {
   const navigate = useNavigate();
@@ -15,16 +16,18 @@ export const NewClientPage = () => {
   };
 
   return (
-    <AnimationPageContainer>
-      <Box pr="50px" pt="5px" pl="64px">
-        <ClientForm
-          onSubmit={handleSubmit}
-          gap="50px"
-          onCancel={() => {
-            navigate(CLIENT_ROUTES.CLIENTS);
-          }}
-        />
-      </Box>
-    </AnimationPageContainer>
+    <PageDefaultMarginsContainer>
+      <AnimationPageContainer>
+        <Box>
+          <ClientForm
+            onSubmit={handleSubmit}
+            gap="50px"
+            onCancel={() => {
+              navigate(CLIENT_ROUTES.CLIENTS);
+            }}
+          />
+        </Box>
+      </AnimationPageContainer>
+    </PageDefaultMarginsContainer>
   );
 };
