@@ -8,6 +8,8 @@ import { EvolutionTimeline } from "@/components/process/EvolutionTimeline";
 import { ObservationTimeline } from "@/components/process/ObservationTimeline";
 import { HonorariesTable } from "@/components/financial/HonorariesTable";
 import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
+import { useNavigateWithConstructRoute } from "@/pages/hooks";
+import { ROUTER_PATHS } from "@/pages/routers";
 
 export const ProcessDetailPage = () => {
   const [process, setProcess] = useState<null | DetailedProcess>(null);
@@ -16,6 +18,8 @@ export const ProcessDetailPage = () => {
   if (!processId) {
     throw new Error("Nenhum id de processo passado");
   }
+
+  const navigate = useNavigateWithConstructRoute();
 
   const getProcess = async () => {
     const process: DetailedProcess = await getDetaildProcess(processId);
@@ -36,12 +40,22 @@ export const ProcessDetailPage = () => {
         {process && (
           <Stack gap={48}>
             <Stack>
-              <Text>Informações do cliente</Text>
+              <Title
+                order={3}
+                onClick={() => {
+                  navigate({
+                    routerPath: ROUTER_PATHS.CLIENT_DETAIL,
+                    params: { clientId: process.client.id },
+                  });
+                }}
+              >
+                <a style={{ cursor: "pointer" }}>Informações do cliente</a>
+              </Title>
               <ClientInfoShow client={process.client} />
             </Stack>
 
             <Stack>
-              <Text>Evoluções e observações</Text>
+              <Title order={3}>Evoluções e observações</Title>
               <Group>
                 <EvolutionTimeline evolutions={process.evolutions} />
                 <ObservationTimeline observations={process.observations} />
@@ -49,7 +63,7 @@ export const ProcessDetailPage = () => {
             </Stack>
 
             <Stack>
-              <Text>Honorários do processo</Text>
+              <Title order={3}>Honorários do processo</Title>
               <HonorariesTable honoraries={process.honoraries} />
             </Stack>
           </Stack>
