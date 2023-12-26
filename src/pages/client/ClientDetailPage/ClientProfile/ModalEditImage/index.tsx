@@ -56,6 +56,7 @@ export const ModalEditImage = (props: ModalEditImageProps) => {
             }
             await props.onUpdate();
             setLoading(false);
+            props.onClose();
           }}
         >
           <Group align="end">
