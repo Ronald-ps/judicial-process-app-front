@@ -32,6 +32,11 @@ export const HonorariesTable = (props: HonorariesTableProps) => {
           </Table.Tr>
         ))}
       </Table.Tbody>
+      {props.honoraries.length === 0 && (
+        <Table.Caption>
+          <Text size="xl">Nenhum honorário</Text>
+        </Table.Caption>
+      )}
     </Table>
   );
 };

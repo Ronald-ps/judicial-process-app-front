@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
-import { DetailedProcess } from "@services/process/types";
+import { type DetailedProcess } from "@services/process/types";
 import { useEffect, useState } from "react";
 import { getDetaildProcess } from "@services/process/adapters";
-import { Stack, Text } from "@mantine/core"
+import { Group, Stack, Text, Title } from "@mantine/core";
+import { ClientInfoShow } from "@/components/client/ClientInfoShow";
+import { EvolutionTimeline } from "@/components/process/EvolutionTimeline";
+import { ObservationTimeline } from "@/components/process/ObservationTimeline";
+import { HonorariesTable } from "@/components/financial/HonorariesTable";
 
 export const ProcessDetailPage = () => {
-  const [processDetail, setProcessDetail] = useState<null | DetailedProcess>(
-    null
-  );
+  const [process, setProcess] = useState<null | DetailedProcess>(null);
 
   const processId = useParams().processId;
   if (!processId) {
@@ -15,17 +17,41 @@ export const ProcessDetailPage = () => {
   }
 
   const getProcess = async () => {
-    const process = await getDetaildProcess(processId);
-    setProcessDetail(process);
+    const process: DetailedProcess = await getDetaildProcess(processId);
+    setProcess(process);
   };
 
   useEffect(() => {
     getProcess();
   }, [processId]);
 
-  return <Stack>
-    <Stack>
-      <Text>Nome: {}</Text>
+  return (
+    <Stack pl="64px" pb="64px">
+      <Title order={1} mb={32}>
+        Detalhes do processo {`Nº ${process?.code}`}
+      </Title>
+      {/*  */}
+      {process && (
+        <Stack gap={48}>
+          <Stack>
+            <Text>Informações do cliente</Text>
+            <ClientInfoShow client={process.client} />
+          </Stack>
+
+          <Stack>
+            <Text>Evoluções e observações</Text>
+            <Group>
+              <EvolutionTimeline evolutions={process.evolutions} />
+              <ObservationTimeline observations={process.observations} />
+            </Group>
+          </Stack>
+
+          <Stack>
+            <Text>Honorários do processo</Text>
+            <HonorariesTable honoraries={process.honoraries} />
+          </Stack>
+        </Stack>
+      )}
     </Stack>
-  </Stack>;
+  );
 };

@@ -1,3 +1,4 @@
+import { Honorary, type Client } from "@services/client/types";
 
 export interface Observation {
   id: number;
@@ -18,10 +19,11 @@ export interface Evolution {
 export interface DetailedProcess {
   id: number;
   code: string;
-  client_id: number;
+  client: Client;
   start_date: string;
   description: string;
   observations: Observation[];
   evolutions: Evolution[];
+  honoraries: Honorary[];
   type: string;
 }

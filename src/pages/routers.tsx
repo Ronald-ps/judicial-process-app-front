@@ -13,7 +13,6 @@ export const CLIENT_ROUTES = {
   NEW_CLIENT: "/clients/add",
   CLIENT_DETAIL: "/clients/:clientId",
   EDIT_CLIENT: "/clients/:clientId/edit",
-  PROCESS_DETAIL: "/processes/:processId",
 };
 
 export const PROCESS_ROUTES = {

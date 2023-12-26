@@ -2,7 +2,7 @@ import { useDisclosure, useElementSize } from "@mantine/hooks";
 import { AppShell, Box, Burger, Group, NavLink, Text } from "@mantine/core";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { CLIENT_ROUTES, ROUTER_PATHS } from "./routers";
+import { CLIENT_ROUTES, ROUTER_PATHS, PROCESS_ROUTES } from "./routers";
 import { useMatchRouterPath } from "./hooks";
 
 export const DefaultPagesContainer = () => {
@@ -44,6 +44,13 @@ export const DefaultPagesContainer = () => {
           label="Clientes"
           onClick={() => navigate(ROUTER_PATHS.CLIENTS)}
           active={Object.values(CLIENT_ROUTES).includes(
+            matchRouterPath(location.pathname)
+          )}
+        />
+        <NavLink
+          label="Processos"
+          onClick={() => navigate(ROUTER_PATHS.PROCESS_DETAIL)}
+          active={Object.values(PROCESS_ROUTES).includes(
             matchRouterPath(location.pathname)
           )}
         />
