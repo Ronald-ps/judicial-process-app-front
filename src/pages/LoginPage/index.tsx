@@ -32,7 +32,7 @@ export function LoginPage(props: LoginPageProps) {
 
     try {
       await doLogin(emailElement.value, passwordElement.value);
-      navigate("/")
+      navigate("/");
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -54,7 +54,7 @@ export function LoginPage(props: LoginPageProps) {
           }}
         >
           <TextInput
-            label="Email address"
+            label="Email"
             placeholder="hello@gmail.com"
             size="md"
             name="email"
@@ -62,28 +62,20 @@ export function LoginPage(props: LoginPageProps) {
             required
           />
           <PasswordInput
-            label="Password"
+            label="Senha"
             placeholder="Your password"
             mt="md"
             size="md"
             name="password"
             required
           />
-          <Checkbox label="Keep me logged in" mt="xl" size="md" />
           <Button fullWidth mt="xl" size="md" type="submit" loading={loading}>
-            Login
+            Entrar
           </Button>
         </form>
 
         <Text ta="center" mt="md">
-          Don&apos;t have an account?{" "}
-          <Anchor<"a">
-            href="#"
-            fw={700}
-            onClick={(event) => event.preventDefault()}
-          >
-            Register
-          </Anchor>
+          Sem conta ainda? Solicite a criação ao gestor
         </Text>
       </Paper>
     </div>
