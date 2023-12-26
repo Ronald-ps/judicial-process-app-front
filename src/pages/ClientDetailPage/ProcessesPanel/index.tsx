@@ -1,6 +1,6 @@
 import type { DetailedProcess } from "@services/client/types";
 import { Button, Flex, Stack, Table } from "@mantine/core";
-import { formatDate } from "@/helpers/dateUtils";
+import { ProcessesTable } from "@components/process/ProcessesTable";
 import { NewProcessModal } from "./NewProcessModal";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -31,30 +31,7 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
   return (
     <>
       <Stack>
-        <Table striped>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Nº</Table.Th>
-              <Table.Th>Data de início</Table.Th>
-              <Table.Th>Serviço</Table.Th>
-              {/* <Table.Th>Última observação</Table.Th> */}
-            </Table.Tr>
-          </Table.Thead>
-
-          <Table.Tbody>
-            {processesCopy.map((process, i) => (
-              <Table.Tr key={i}>
-                <Table.Td>{process.code}</Table.Td>
-                <Table.Td>
-                  {formatDate({ date: process.start_date })}
-                </Table.Td>
-                <Table.Td>
-                  {process.type}
-                </Table.Td>
-              </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
+        <ProcessesTable processes={props.processes} />
         <Flex mt={16}>
           <Button px="34px" onClick={() => setNewProcessModalOpened(true)}>
             Novo processo

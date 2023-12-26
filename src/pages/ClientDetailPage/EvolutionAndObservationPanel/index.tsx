@@ -3,11 +3,10 @@ import type {
   Evolution,
   Observation,
 } from "@services/client/types";
-import { EvolutionTimeline } from "./EvolutionTimeline";
-import { ObservationTimeline } from "./ObservationTimeline";
+import { EvolutionTimeline } from "@components/process/EvolutionTimeline";
+import { ObservationTimeline } from "@components/process/ObservationTimeline";
 import { useEffect, useState } from "react";
-import { Box, Button, Group, Space, Stack, Text } from "@mantine/core";
-import classes from "./EvolutionAndObservationPanel.module.css";
+import { Box, Button, Group, Stack, Text } from "@mantine/core";
 import { NewEvolutionModal } from "./NewEvolutionModal";
 import { NewObservationModal } from "./NewObservationModal";
 import { useParams } from "react-router-dom";

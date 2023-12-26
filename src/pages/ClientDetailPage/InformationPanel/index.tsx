@@ -30,12 +30,6 @@ export const InformationPanel = (props: InformationPanelProps) => {
   const { client } = props;
   const navigate = useNavigateWithConstructRoute();
 
-  const calculateAge = (dateString: string) => {
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const age = today.getFullYear() - birthDate.getFullYear();
-    return age.toString();
-  };
   return (
     <div>
       <Stack w={"80%"}>
