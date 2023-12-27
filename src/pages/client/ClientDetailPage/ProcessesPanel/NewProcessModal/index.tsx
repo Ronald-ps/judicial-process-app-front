@@ -1,5 +1,5 @@
 import { processCreate } from "@/services/client/adapters";
-import { DetailedProcess, ProcessForSave } from "@/services/client/types";
+import { DetailedProcess, ProcessForSave } from "@/services/process/types";
 import { ProcessForm } from "@components/process/ProcessForm";
 import { Modal, Stack, Text } from "@mantine/core";
 

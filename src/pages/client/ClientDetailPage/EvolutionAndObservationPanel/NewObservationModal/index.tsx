@@ -2,7 +2,8 @@ import {
   observationCreate,
   getSimpleProcesses,
 } from "@/services/client/adapters";
-import { Observation, SimpleProcess } from "@/services/client/types";
+import { Observation } from "@/services/process/types";
+import { SimpleProcess } from "@/services/client/types";
 import { Modal, Stack, Select, Textarea, Button } from "@mantine/core";
 import { useEffect, useState } from "react";
 

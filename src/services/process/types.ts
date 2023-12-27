@@ -27,3 +27,13 @@ export interface DetailedProcess {
   honoraries: Honorary[];
   type: string;
 }
+
+export interface Process {
+  id: number;
+  code: string;
+  client_id: number;
+  start_date: string | Date;
+  description: string;
+}
+
+export interface ProcessForSave extends Omit<Process, "id"> {}

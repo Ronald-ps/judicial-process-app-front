@@ -1,5 +1,5 @@
 import { formatDate } from "@/helpers/dateUtils";
-import { Honorary } from "@/services/client/types";
+import { Honorary } from "@/services/financial/types";
 import { Table, Text } from "@mantine/core";
 
 interface HonorariesTableProps {

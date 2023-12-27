@@ -2,11 +2,13 @@ import { defaultClient } from "@services/api";
 import type {
   Client,
   ClientForSave,
+  SimpleProcess,
+} from "./types";
+import type {
   DetailedProcess,
   Evolution,
   ProcessForSave,
-  SimpleProcess,
-} from "./types";
+} from "@services/process/types";
 
 export const getClients = async ({
   searchTerm,
@@ -82,10 +84,19 @@ export const getSimpleProcesses = async (clientId: number | string) => {
 
 export const evolutionCreate = async (
   processId: number | string,
-  description: string
+  description: string,
+  file?: File
 ) => {
+  const formData = new FormData();
+  formData.append("description", description);
+  formData.append("process", String(processId));
+
+  if (file) {
+    formData.append("file", file);
+  }
+
   const evolutionCreated: Evolution = await defaultClient
-    .post(`evolution/`, { description, process: processId })
+    .post(`evolution/`, formData)
     .then(({ data }) => data);
   return evolutionCreated;
 };

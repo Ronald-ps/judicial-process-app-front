@@ -1,4 +1,4 @@
-import type { Evolution } from "@services/client/types";
+import type { Evolution } from "@services/process/types";
 import { Box, Stack } from "@mantine/core";
 import { ScrollAreaAutosize, Timeline, Text } from "@mantine/core";
 import { IconMessageDots } from "@tabler/icons-react";

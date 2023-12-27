@@ -1,4 +1,4 @@
-import { type Honorary } from "@/services/client/types";
+import { type Honorary } from "@/services/financial/types";
 import { Button, Flex, Modal, Stack, Table, Text } from "@mantine/core";
 import { NewHonorary } from "./NewHonorary";
 import { useEffect, useState } from "react";

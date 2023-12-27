@@ -41,43 +41,6 @@ export interface ClientForSave extends Omit<Client, "id"> {
   birth_date: string | Date;
 }
 
-export interface Observation {
-  id: number;
-  description: string;
-  process_id: number;
-  process_code: string;
-  created_at: string;
-}
-
-export interface Evolution {
-  id: number;
-  description: string;
-  process_id: number;
-  process_code: string;
-  created_at: string;
-}
-
-export interface Process {
-  id: number;
-  code: string;
-  client_id: number;
-  start_date: string | Date;
-  description: string;
-}
-
-export interface ProcessForSave extends Omit<Process, "id"> {}
-
-export interface DetailedProcess {
-  id: number;
-  code: string;
-  client_id: number;
-  start_date: string;
-  description: string;
-  observations: Observation[];
-  evolutions: Evolution[];
-  type: string;
-}
-
 export interface SimpleProcess {
   id: number;
   code: string;

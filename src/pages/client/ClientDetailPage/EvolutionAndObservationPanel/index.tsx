@@ -2,7 +2,7 @@ import type {
   DetailedProcess,
   Evolution,
   Observation,
-} from "@services/client/types";
+} from "@services/process/types";
 import { EvolutionTimeline } from "@components/process/EvolutionTimeline";
 import { ObservationTimeline } from "@components/process/ObservationTimeline";
 import { useEffect, useState } from "react";

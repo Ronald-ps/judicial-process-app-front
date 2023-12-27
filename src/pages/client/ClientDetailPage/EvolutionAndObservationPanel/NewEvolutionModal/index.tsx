@@ -2,8 +2,16 @@ import {
   evolutionCreate,
   getSimpleProcesses,
 } from "@/services/client/adapters";
-import { Evolution, SimpleProcess } from "@/services/client/types";
-import { Modal, Stack, Select, Textarea, Button } from "@mantine/core";
+import { Evolution } from "@services/process/types";
+import { SimpleProcess } from "@services/client/types";
+import {
+  Modal,
+  Stack,
+  Select,
+  Textarea,
+  Button,
+  FileInput,
+} from "@mantine/core";
 import { useEffect, useState } from "react";
 
 interface NewEvolutionModalProps {
@@ -21,6 +29,7 @@ export const NewEvolutionModal = (props: NewEvolutionModalProps) => {
   const [selectedProcess, setSelectedProcess] = useState("" as string | null);
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
 
   const getAvailableProcesses = async () => {
     const simpleProcessList = await getSimpleProcesses(props.clientId);
@@ -33,7 +42,11 @@ export const NewEvolutionModal = (props: NewEvolutionModalProps) => {
     }
     setLoading(true);
     try {
-      const evolution = await evolutionCreate(selectedProcess, description);
+      const evolution = await evolutionCreate(
+        selectedProcess,
+        description,
+        file
+      );
       await props.onSave({ evolution });
       setSelectedProcess(null);
       setDescription("");
@@ -83,6 +96,14 @@ export const NewEvolutionModal = (props: NewEvolutionModalProps) => {
               data-autofocus
               value={description}
               onChange={(event) => setDescription(event.currentTarget.value)}
+            />
+            <FileInput
+              label="Arquivo"
+              placeholder="Clique para selecionar um arquivo..."
+              accept=".pdf"
+              onChange={(file) => {
+                setFile(file);
+              }}
             />
             <Button type="submit" loading={loading}>
               Salvar

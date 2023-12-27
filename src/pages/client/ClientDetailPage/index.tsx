@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getClient as getClientService } from "@/services/client/adapters";
-import { type Client, type DetailedProcess } from "@/services/client/types";
+import { type Client, } from "@/services/client/types";
+import { type DetailedProcess } from "@/services/process/types";
 import { useEffect, useState } from "react";
 import { getLegalProcessesByClient } from "@/services/client/adapters";
 import { Box, Flex, Stack, Tabs, rem } from "@mantine/core";
@@ -18,7 +19,6 @@ import { getHonoraries } from "@services/financial/adapters";
 import { type Honorary } from "@services/financial/types";
 import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer";
 import { AnimationPageContainer } from "@/components/generic/animation/AnimationPageContainer";
-import { IconReportMoney } from "@tabler/icons-react";
 import { IconFileDollar } from "@tabler/icons-react";
 
 export const ClientDetailPage = () => {

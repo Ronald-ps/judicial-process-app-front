@@ -1,8 +1,8 @@
 import { useForm } from "@mantine/form";
 import { TextInput, Button, Stack, Select } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import type { ProcessForSave } from "@/services/client/types";
-import { PROCESS_SERVICES } from "@/services/client/constants";
+import type { ProcessForSave } from "@/services/process/types";
+import { PROCESS_SERVICES } from "@/services/process/constants";
 
 interface ProcessFormProps {
   onSubmit: (process: ProcessForSave) => void;
