@@ -1,4 +1,5 @@
 import { defaultClient } from "@services/api";
+import { ProcessForSave } from "./types";
 
 export const getDetaildProcess = async (processId: number) => {
   const process = await defaultClient
@@ -14,6 +15,16 @@ export const getProcesses = async (searchTerm: string) => {
     })
     .then((r) => r.data.results);
   return processes;
+};
+
+export const updateProcess = async (params: {
+  process: ProcessForSave;
+  processId: number;
+}) => {
+  const processUpdated = await defaultClient
+    .patch(`process/${params.processId}/`, params.process)
+    .then((r) => r.data);
+  return processUpdated;
 };
 
 export const constructEvolutionFileUrl = async (fileLink: string) => {

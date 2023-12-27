@@ -13,11 +13,24 @@ export interface Evolution {
   description: string;
   process_id: number;
   process_code: string;
-  file?: string; /* file link */
+  file?: string /* file link */;
   created_at: string;
 }
 
-export interface DetailedProcess {
+export interface Process {
+  id: number;
+  code: string;
+  client: number;
+  start_date: string | Date;
+  description: string;
+  type: string;
+}
+
+export interface ProcessForSave extends Partial<Process> {
+  client?: number;
+}
+
+export interface DetailedProcess extends Process {
   id: number;
   code: string;
   client: Client;
@@ -27,14 +40,6 @@ export interface DetailedProcess {
   evolutions: Evolution[];
   honoraries: Honorary[];
   type: string;
-}
-
-export interface Process {
-  id: number;
-  code: string;
-  client_id: number;
-  start_date: string | Date;
-  description: string;
 }
 
 export interface ProcessForSave extends Omit<Process, "id"> {}

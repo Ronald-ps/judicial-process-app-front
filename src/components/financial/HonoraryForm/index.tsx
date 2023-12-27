@@ -26,7 +26,6 @@ export const HonoraryForm = (props: HonoraryFormProps) => {
 
   const getProcesses = async () => {
     const simpleProcessList = await getSimpleProcesses(props.clientId);
-    console.log(simpleProcessList);
     setProcesses(simpleProcessList);
   };
 

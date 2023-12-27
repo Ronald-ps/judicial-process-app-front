@@ -2,7 +2,15 @@ import { useParams } from "react-router-dom";
 import { type DetailedProcess } from "@services/process/types";
 import { useEffect, useState } from "react";
 import { getDetaildProcess } from "@services/process/adapters";
-import { Group, Stack, Text, Title } from "@mantine/core";
+import {
+  Button,
+  Group,
+  Modal,
+  ModalBase,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { ClientInfoShow } from "@/components/client/ClientInfoShow";
 import { EvolutionTimeline } from "@/components/process/EvolutionTimeline";
 import { ObservationTimeline } from "@/components/process/ObservationTimeline";
@@ -11,9 +19,12 @@ import { PageDefaultMarginsContainer } from "@/pages/PageDefaultMarginsContainer
 import { useNavigateWithConstructRoute } from "@/pages/hooks";
 import { ROUTER_PATHS } from "@/pages/routers";
 import { AnimationPageContainer } from "@components/generic/animation/AnimationPageContainer";
+import { IconEdit } from "@tabler/icons-react";
+import { EditProcessForm } from "./EditProcessForm";
 
 export const ProcessDetailPage = () => {
   const [process, setProcess] = useState<null | DetailedProcess>(null);
+  const [openEdit, setOpenEdit] = useState(false);
 
   const processId = useParams().processId;
   if (!processId) {
@@ -41,6 +52,18 @@ export const ProcessDetailPage = () => {
           {/*  */}
           {process && (
             <Stack gap={48}>
+              <Stack>
+                <Text>{process.description}</Text>
+                <Button
+                  maw={164}
+                  rightSection={<IconEdit size={14} />}
+                  variant="subtle"
+                  onClick={() => setOpenEdit(true)}
+                >
+                  Editar processo
+                </Button>
+              </Stack>
+
               <Stack>
                 <Title
                   order={3}
@@ -72,6 +95,22 @@ export const ProcessDetailPage = () => {
           )}
         </Stack>
       </AnimationPageContainer>
+      <Modal
+        opened={openEdit}
+        onClose={() => {
+          setOpenEdit(false);
+        }}
+      >
+        {process && (
+          <EditProcessForm
+            process={process}
+            onSave={async () => {
+              await getProcess();
+              setOpenEdit(false);
+            }}
+          />
+        )}
+      </Modal>
     </PageDefaultMarginsContainer>
   );
 };

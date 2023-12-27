@@ -1,27 +1,39 @@
 import { useForm } from "@mantine/form";
 import { TextInput, Button, Stack, Select } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import type { ProcessForSave } from "@/services/process/types";
+import type { Process, ProcessForSave } from "@/services/process/types";
 import { PROCESS_SERVICES } from "@/services/process/constants";
 
 interface ProcessFormProps {
   onSubmit: (process: ProcessForSave) => void;
+  process?: Process;
 }
 export const ProcessForm = (props: ProcessFormProps) => {
+  const initialValues = {
+    code: "",
+    description: "",
+    start_date: new Date(),
+    type: "",
+  };
+  if (props.process) {
+    initialValues.code = props.process.code;
+    initialValues.description = props.process.description;
+    initialValues.start_date = new Date(props.process.start_date);
+    initialValues.type = props.process.type;
+  }
+
   const processForm = useForm({
-    initialValues: {
-      code: "",
-      description: "",
-      start_date: "",
-      type: "",
-    },
+    initialValues,
+    transformValues: (values) => ({
+      ...values,
+      start_date: values.start_date.toISOString().split("T")[0],
+    }),
   });
   return (
     <form
-      onSubmit={async (e) => {
-        e.preventDefault();
-        await props.onSubmit(processForm.values);
-      }}
+      onSubmit={processForm.onSubmit(async (values) => {
+        await props.onSubmit(values);
+      })}
     >
       <Stack>
         <TextInput

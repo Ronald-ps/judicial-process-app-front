@@ -1,9 +1,5 @@
 import { defaultClient } from "@services/api";
-import type {
-  Client,
-  ClientForSave,
-  SimpleProcess,
-} from "./types";
+import type { Client, ClientForSave, SimpleProcess } from "./types";
 import type {
   DetailedProcess,
   Evolution,
@@ -126,7 +122,6 @@ export const updateProfileImage = async (params: {
 }) => {
   const formData = new FormData();
   formData.append("profile-image", params.file);
-  console.log(params.file, formData);
   const profileImage: Blob = await defaultClient
     .post(`client/${params.clientId}/profile-image/`, formData, {
       headers: {

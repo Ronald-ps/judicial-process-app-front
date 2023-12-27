@@ -18,7 +18,6 @@ export const ProcessesPanel = (props: ProcessesPanelProps) => {
   }
 
   const handleSaveProcess = async (process: DetailedProcess) => {
-    console.log("process", process);
     const newProcesses = [process, ...processesCopy];
     setProcessesCopy(newProcesses);
     setNewProcessModalOpened(false);
