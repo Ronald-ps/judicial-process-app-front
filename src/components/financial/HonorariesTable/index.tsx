@@ -1,6 +1,22 @@
 import { formatDate } from "@/helpers/dateUtils";
 import { Honorary } from "@/services/financial/types";
 import { Table, Text } from "@mantine/core";
+import { useState } from "react";
+
+const TextExpanse = ({ children }) => {
+  const [lineClamp, setLineClamp] = useState<number | undefined>(1);
+  return (
+    <Text
+      lineClamp={lineClamp}
+      onClick={() => {
+        setLineClamp(lineClamp ? undefined : 1);
+      }}
+      style={{ cursor: "pointer" }}
+    >
+      {children}
+    </Text>
+  );
+};
 
 interface HonorariesTableProps {
   honoraries: Honorary[];
@@ -24,7 +40,7 @@ export const HonorariesTable = (props: HonorariesTableProps) => {
             <Table.Td>{honor.process_code}</Table.Td>
             <Table.Td>{formatDate({ date: honor.date })}</Table.Td>
             <Table.Td>
-              <Text lineClamp={1}>{honor.description}</Text>
+              <TextExpanse>{honor.description}</TextExpanse>
             </Table.Td>
             <Table.Td>{parseFloat(honor.value).toFixed(2)}</Table.Td>
             <Table.Td>{parseFloat(honor.paid_value).toFixed(2)}</Table.Td>

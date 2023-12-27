@@ -54,11 +54,18 @@ export const ProcessDetailPage = () => {
             <Stack gap={48}>
               <Stack>
                 <Text>{process.description}</Text>
+                <Text c="dimmed" fz={"0.86em"} tt="capitalize">
+                  {process.type}
+                </Text>
+                <Text c="dimmed" fz={"0.86em"}>
+                  {process.start_date}
+                </Text>
                 <Button
                   maw={164}
                   rightSection={<IconEdit size={14} />}
                   variant="subtle"
                   onClick={() => setOpenEdit(true)}
+                  pl={0}
                 >
                   Editar processo
                 </Button>

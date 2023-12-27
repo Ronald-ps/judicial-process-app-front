@@ -1,7 +1,7 @@
 import { defaultClient } from "@services/api";
 import { ProcessForSave } from "./types";
 
-export const getDetaildProcess = async (processId: number) => {
+export const getDetaildProcess = async (processId: number | string) => {
   const process = await defaultClient
     .get(`process/${processId}`)
     .then((r) => r.data);
