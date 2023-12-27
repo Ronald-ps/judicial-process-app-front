@@ -15,3 +15,13 @@ export const getProcesses = async (searchTerm: string) => {
     .then((r) => r.data.results);
   return processes;
 };
+
+export const constructEvolutionFileUrl = async (fileLink: string) => {
+  const fileBlob = await defaultClient
+    .get(fileLink, {
+      responseType: "blob",
+    })
+    .then((r) => r.data);
+  const fileUrl = window.URL.createObjectURL(fileBlob);
+  return fileUrl;
+};

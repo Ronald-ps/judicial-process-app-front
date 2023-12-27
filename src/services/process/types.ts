@@ -13,6 +13,7 @@ export interface Evolution {
   description: string;
   process_id: number;
   process_code: string;
+  file?: string; /* file link */
   created_at: string;
 }
 

@@ -45,15 +45,3 @@ export interface SimpleProcess {
   id: number;
   code: string;
 }
-
-export interface Honorary {
-  id: number;
-  date: Date | string;
-  process: number;
-  process_code: string;
-  description: string;
-  value: string;
-  paid_value: string;
-  created_at: Date | string;
-  created_by: number /* ids */;
-}
