@@ -1,5 +1,5 @@
 import { useForm } from "@mantine/form";
-import { TextInput, Button, Stack, Select } from "@mantine/core";
+import { TextInput, Button, Stack, Select, Textarea } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import type { Process, ProcessForSave } from "@/services/process/types";
 import { PROCESS_SERVICES } from "@/services/process/constants";
@@ -41,7 +41,8 @@ export const ProcessForm = (props: ProcessFormProps) => {
           {...processForm.getInputProps("code")}
           required
         />
-        <TextInput
+        <Textarea
+          autosize
           label="Descrição"
           {...processForm.getInputProps("description")}
           required
